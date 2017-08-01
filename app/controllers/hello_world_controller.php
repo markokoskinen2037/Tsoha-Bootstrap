@@ -25,6 +25,6 @@
     }
     
         public static function muokkaus(){
-        View::make("suunnitelmat/esittely.html");
+        View::make("suunnitelmat/muokkaus.html");
     }
   }
