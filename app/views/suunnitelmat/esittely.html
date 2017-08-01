@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  <h1>Pese pyykit</h1>
+  <!-- Painikkeet tähän -->
+  <p>
+    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
+  </p>
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Kiireellisyys:</strong> 1</li>
+    <li><strong>Status:</strong> <label class="label label-danger">kesken</label></li>
+    <li><strong>Lisäyspäivä:</strong> 28.12.2016</li>
+  </ul>
+  <!-- Kuvaus tulee tähän -->
+  <p>
+    Pese nyt vaan ne pyykit jookosta kookosta
+  </p>
+{% endblock %}
