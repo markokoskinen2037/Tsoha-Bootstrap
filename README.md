@@ -15,3 +15,4 @@ Yleisiä linkkejä:
 * [Kirjautuminen](http://markokos.users.cs.helsinki.fi/tsoha/kirjautuminen)
 * [Listaus](http://markokos.users.cs.helsinki.fi/tsoha/listaus)
 * [Muokkaus](http://markokos.users.cs.helsinki.fi/tsoha/muokkaus)
+* [Tietokantayhteystesti](http://markokos.users.cs.helsinki.fi/tsoha/tietokantayhteys)
