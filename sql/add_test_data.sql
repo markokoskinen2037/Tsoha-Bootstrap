@@ -1,7 +1,7 @@
 -- Lisää INSERT INTO lauseet tähän tiedostoon
 
 
-INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES ('admin','1234');
+INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES ('TESTI','1234');
 INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES ('Pekka','salasana');
 
 INSERT INTO Luokka (luokkanimi) VALUES ('Kotityöt');
