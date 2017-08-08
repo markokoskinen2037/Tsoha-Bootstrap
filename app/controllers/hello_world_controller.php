@@ -1,6 +1,5 @@
 <?php
 
-require "app/models/tehtava.php";
 
 class HelloWorldController extends BaseController {
 
