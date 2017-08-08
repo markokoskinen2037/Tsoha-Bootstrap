@@ -40,7 +40,7 @@ class Tehtava extends BaseModel {
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"]
             ));
-            return $game;
+            return $tehtava;
         }
         return null;
     }
