@@ -17,7 +17,7 @@ class Tehtava extends BaseModel {
         foreach ($rows as $row) {
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
-                "tehtanimi" => $row["tehtavanimi"],
+                "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"],
@@ -35,7 +35,7 @@ class Tehtava extends BaseModel {
         if ($row) {
             $tehtava = new Tehtava(array(
                 "id" => $row["id"],
-                "tehtanimi" => $row["tehtavanimi"],
+                "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"]
