@@ -12,10 +12,10 @@ class Tehtava extends BaseModel {
         $query = DB::connection()->prepare("SELECT * FROM Tehtava");
         $query->execute();
         $rows = $query->fetchAll();
-        $tasks = array();
+        $tehtavat = array();
 
-        foreach ($tasks as $row) {
-            $tasks[] = new Tehtava(array(
+        foreach ($rows as $row) {
+            $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
@@ -24,7 +24,7 @@ class Tehtava extends BaseModel {
             ));
         }
 
-        return $tasks;
+        return $tehtavat;
     }
 
     public static function find($id) {
