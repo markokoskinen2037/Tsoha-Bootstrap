@@ -28,6 +28,6 @@ $routes->get('/tehtava', function() {
     TasksController::index();
 });
 
-$router->get('tehtava/:id', function() {
+$router->get('/tehtava', function() {
     TasksController::show();
 });
