@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% for task in task %}
   <h1>{{task.tehtavanimi}}</h1>
   <!-- Painikkeet tähän -->
   <p>
@@ -15,5 +16,6 @@
   <p>
     Pese nyt vaan ne pyykit jookosta kookosta
   </p>
+{% endfor  %}
 {% endblock %}
 <a href="listaus.html"></a>
