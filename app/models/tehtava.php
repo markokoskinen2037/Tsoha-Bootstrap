@@ -39,7 +39,8 @@ class Tehtava extends BaseModel {
                 "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
-                "luomisaika" => $row["luomisaika"]
+                "luomisaika" => $row["luomisaika"],
+                "tarkeysaste" => $row["tarkeysaste"]
             ));
             return $tehtava;
         }
