@@ -13,7 +13,7 @@
   </p>
   <!-- Tiedot tulee listana tähän -->
   <ul>
-    <li><strong>Kiireellisyys:</strong>{{taskdata.tärkeysaste}}</li>
+    <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
     <li><strong>Status:</strong>
         {% if task.tehty %}
             <label class="label label-success">tehty
@@ -21,7 +21,7 @@
         <label class="label label-danger">kesken
         {% endif %}
     </li>
-    <li><strong>Luomisaika:</strong>{{luomisaika}}</li>
+    <li><strong>Luomisaika:</strong>{{taskdata.luomisaika}}</li>
   </ul>
   <!-- Kuvaus tulee tähän -->
   <p>
