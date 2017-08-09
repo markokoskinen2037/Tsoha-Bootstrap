@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% for task in tasks %}
-  <h1>{{task.tehtavanimi}}</h1>
+  <h1>Pese pyykit</h1>
   <!-- Painikkeet tähän -->
   <p>
     <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
@@ -16,5 +15,4 @@
   <p>
     Pese nyt vaan ne pyykit jookosta kookosta
   </p>
-{% endfor  %}
 {% endblock %}
