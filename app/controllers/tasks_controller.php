@@ -9,9 +9,9 @@ class TasksController extends BaseController {
     }
     
     public static function show($id){
-        $tasks = Tehtava::find($id);
+        $task = Tehtava::find($id);
         
-        View::make("tehtava/esittely.html", array('tasks' => $tasks));
+        View::make('tehtava/esittely.html', $task);
     }
 
 }
