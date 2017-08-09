@@ -23,3 +23,7 @@
       $routes->get('/muokkaus', function() {
     HelloWorldController::muokkaus();
   });
+  
+      $routes->get('/tehtava', function(){
+    GameController::index();
+  });
