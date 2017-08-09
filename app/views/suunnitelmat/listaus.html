@@ -21,18 +21,18 @@
     <tbody>
       {% for task in tasks %}
         <tr>
-          <td>testi<a href="{{base_path}}/suunnitelmat/{{tehtava.id}}">{{tehtava.tehtavanimi}}</td>
-          <td>{{tehtava.kuvaus}}</td>
-          <td>{{tehtava.tarkeysaste}}</td>
+          <td><a href="{{base_path}}/suunnitelmat/{{task.id}}">{{task.tehtavanimi}}</td>
+          <td>{{task.kuvaus}}</td>
+          <td>{{task.tarkeysaste}}</td>
           <td>
-              {% if tehtava.tehty %}
+              {% if task.tehty %}
                 <label class="label label-success">tehty
               {% else %}
                 <label class="label label-danger">kesken
               {% endif %}
           </td>
-          <td>{{tehtava.luomisaika}}</td>
-          <td><a class="btn btn-default btn-sm" href="{{base_path}}/tehtava/{{tehtava.id}}/muokkaus">Muokkaa</a></td>
+          <td>{{task.luomisaika}}</td>
+          <td><a class="btn btn-default btn-sm" href="{{base_path}}/tehtava/{{task.id}}/muokkaus">Muokkaa</a></td>
         </tr>
       {% endfor %}
     </tbody>
