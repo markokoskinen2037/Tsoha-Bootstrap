@@ -28,6 +28,6 @@ $routes->get('/tehtava', function() {
     TasksController::index();
 });
 
-$router->get("game/:id", function($id) {
+$router->get("/game/:id", function($id) {
     TasksController::show($id);
 });
