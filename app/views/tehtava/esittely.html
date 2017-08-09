@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-{% for task in task %}
-  <h1>tää on placeholder</h1>
+{% for task in tasks %}
+  <h1>{{task.tehtavanimi}}</h1>
   <!-- Painikkeet tähän -->
   <p>
     <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
