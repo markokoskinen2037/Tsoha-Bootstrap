@@ -1,6 +1,6 @@
 <?php
 
-class TaskController extends BaseController{
+class TasksController extends BaseController{
     
     public static function index(){
         $tasks = tehtava::all();
