@@ -1,29 +1,33 @@
 <?php
 
-  $routes->get('/', function() {
+$routes->get('/', function() {
     HelloWorldController::index();
-  });
+});
 
-  $routes->get('/hiekkalaatikko', function() {
+$routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
-  });
+});
 
-    $routes->get('/esittely', function() {
+$routes->get('/esittely', function() {
     HelloWorldController::esittely();
-  });
-  
-      $routes->get('/kirjautuminen', function() {
+});
+
+$routes->get('/kirjautuminen', function() {
     HelloWorldController::kirjautuminen();
-  });
-  
-      $routes->get('/listaus', function() {
+});
+
+$routes->get('/listaus', function() {
     HelloWorldController::listaus();
-  });
-  
-      $routes->get('/muokkaus', function() {
+});
+
+$routes->get('/muokkaus', function() {
     HelloWorldController::muokkaus();
-  });
-  
-      $routes->get('/tehtava', function(){
+});
+
+$routes->get('/tehtava', function() {
     TasksController::index();
-  });
+});
+
+$router->get("game/:id", function($id) {
+    TasksController::show($id);
+});
