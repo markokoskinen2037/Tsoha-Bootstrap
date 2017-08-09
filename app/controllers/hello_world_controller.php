@@ -19,7 +19,7 @@ class HelloWorldController extends BaseController {
     }
 
     public static function esittely() {
-        View::make("suunnitelmat/tehtava/esittely.html");
+        View::make("tehtava/esittely.html");
     }
 
     public static function kirjautuminen() {
@@ -27,11 +27,11 @@ class HelloWorldController extends BaseController {
     }
 
     public static function listaus() {
-        View::make("suunnitelmat/tehtava/listaus.html");
+        View::make("tehtava/listaus.html");
     }
 
     public static function muokkaus() {
-        View::make("suunnitelmat/tehtava/muokkaus.html");
+        View::make("tehtava/muokkaus.html");
     }
 
 }
