@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Pese pyykit</h1>
+  
+  {% for task in taskdata %}
+  <p>{{task.tehtavanimi}}</p>
+  {% endfor %}
+  
+  
   <!-- Painikkeet tähän -->
   <p>
     <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
