@@ -25,5 +25,5 @@
   });
   
       $routes->get('/tehtava', function(){
-    GameController::index();
+    TasksController::index();
   });
