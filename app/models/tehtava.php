@@ -2,7 +2,7 @@
 
 class Tehtava extends BaseModel {
 
-    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika;
+    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $tarkeysaste;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -21,6 +21,7 @@ class Tehtava extends BaseModel {
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"],
+                "tarkeysaste" => $row["tarkeysaste"]
             ));
         }
 
