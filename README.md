@@ -11,8 +11,8 @@ Yleisiä linkkejä:
 
 ## Linkit suunnitelmasivuihin
 * [Etusivu ](http://markokos.users.cs.helsinki.fi/tsoha/)
-* [Esittely](http://markokos.users.cs.helsinki.fi/tsoha/esittely)
+* [Esittely](https://markokos.users.cs.helsinki.fi/tsoha/tehtava/3)
 * [Kirjautuminen](http://markokos.users.cs.helsinki.fi/tsoha/kirjautuminen)
-* [Listaus](http://markokos.users.cs.helsinki.fi/tsoha/listaus)
+* [Listaus](https://markokos.users.cs.helsinki.fi/tsoha/tehtava)
 * [Muokkaus](http://markokos.users.cs.helsinki.fi/tsoha/muokkaus)
 * [Tietokantayhteystesti](http://markokos.users.cs.helsinki.fi/tsoha/tietokantayhteys)
