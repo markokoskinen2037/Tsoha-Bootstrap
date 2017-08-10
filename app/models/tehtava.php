@@ -21,7 +21,9 @@ class Tehtava extends BaseModel {
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"],
-                "tarkeysaste" => $row["tarkeysaste"]
+                "luokkatunnus" => $row["luokkatunnus"],
+                "tarkeysaste" => $row["tarkeysaste"],
+                "tekija" => $row["tekija"]
             ));
         }
 
@@ -40,7 +42,9 @@ class Tehtava extends BaseModel {
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"],
-                "tarkeysaste" => $row["tarkeysaste"]
+                "luokkatunnus" => $row["luokkatunnus"],
+                "tarkeysaste" => $row["tarkeysaste"],
+                "tekija" => $row["tekija"]
             ));
             return $tehtava;
         }
