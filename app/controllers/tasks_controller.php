@@ -27,5 +27,9 @@ class TasksController extends BaseController {
         
         Redirect::to('/tehtava/' . $game->id, array('message' => 'Tehtävä lisätty!'));
     }
+    
+    public static function create(){
+        View::make('tehtava/uusi.html');
+    }
 
 }
