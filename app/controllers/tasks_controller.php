@@ -25,7 +25,7 @@ class TasksController extends BaseController {
         
         $tehtava->save();
         
-        Redirect::to('/tehtava/' . $game->id, array('message' => 'Tehtävä lisätty!'));
+        Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
     }
     
     public static function create(){
