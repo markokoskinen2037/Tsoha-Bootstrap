@@ -28,6 +28,15 @@ $routes->get('/tehtava', function() {
     TasksController::index();
 });
 
+$routes->get('/tehtava/uusi', function() {
+    TasksController::create();
+});
+
 $routes->get('/tehtava/:id', function($id) {
     TasksController::show($id);
 });
+
+$routes->post('/tehtava', function() {
+    TasksController::store();
+});
+
