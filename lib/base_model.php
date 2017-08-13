@@ -23,13 +23,13 @@ class BaseModel {
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
             $returnedArray = $this->{$methodToRun}();
-            
-            if($returnedArray != null){
+
+            if ($returnedArray != null) {
                 $errors = array_merge($errors, $returnedArray);
             }
-            
-            
-            
+
+
+
             // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
         }
         return $errors;
@@ -37,37 +37,37 @@ class BaseModel {
 
     public function validate_string_length($string, $length) {
         $validation_errors = array();
-        
-        if($length == 100){ //Tiedetään että tarkastellaan nimeä
-            if(strlen($string) > 100){
+
+        if ($length == 100) { //Tiedetään että tarkastellaan nimeä
+            if (strlen($string) > 100) {
                 $validation_errors[] = "Nimi on liian pitkä.";
             }
-            if($string == null){
+            if ($string == null) {
                 $validation_errors[] = "Nimi ei voi olla null.";
             }
         }
-        
-        if($length == 500){ //Tiedetään että tarkastellaan kuvausta
-            if(strlen($string) > 500){
+
+        if ($length == 500) { //Tiedetään että tarkastellaan kuvausta
+            if (strlen($string) > 500) {
                 $validation_errors[] = "Kuvaus on liian pitkä.";
             }
         }
-        
-        
+
+
         return $validation_errors;
     }
 
     public function validate_int_value($int, $maxvalue) {
         $validation_errors = array();
-        
-        if($int > $maxvalue){
+
+        if ($int > $maxvalue) {
             $validation_errors[] = "Liian suuri numeroarvo.";
         }
-        
-        if($int == null){
+
+        if ($int == null) {
             $validation_errors[] = "Älä jätä mitään kenttää tyhjäksi!";
         }
-        
+
         return $validation_errors;
     }
 
