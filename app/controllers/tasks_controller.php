@@ -26,6 +26,8 @@ class TasksController extends BaseController {
         $tehtava = new Tehtava($attributes);
         $errors = $tehtava->errors();
         
+        Kint::dump($errors);
+        
         if(count($errors) == 0){
             $tehtava->save();
             Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
