@@ -22,6 +22,8 @@ class TasksController extends BaseController {
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
         ));
+        
+        $errors = $tehtava->errors();
 
         if (count($errors) == 0) {
             $tehtava->save();
