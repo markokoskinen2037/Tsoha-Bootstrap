@@ -20,10 +20,18 @@
       $errors = array();
 
       foreach($this->validators as $validator){
+          $methodToRun = $validator;
+          $this->{$methodToRun}();
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
       }
 
       return $errors;
+    }
+    
+    public function validate_string_length($string, $length){
+        if(strlen($string) <= 100){
+            echo "this is fine";
+        }
     }
 
   }

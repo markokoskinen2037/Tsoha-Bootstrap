@@ -6,6 +6,8 @@ class Tehtava extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
+        $this->validators = array("validate_tehtavanimi","validate_kuvaus","validate_luokkatunnus","validate_tarkeysaste");
+        
     }
 
     public static function all() {
@@ -53,14 +55,15 @@ class Tehtava extends BaseModel {
     
     public function save(){
         
+        $errors = $this->errors(); //Kutsutaan validoijaa
+        
         $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste) RETURNING id');
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste));
         $row = $query->fetch();
         $this->id = $row['id'];
-        
-        
-        
     }
+    
+    public function validate_name
     
 
 }
