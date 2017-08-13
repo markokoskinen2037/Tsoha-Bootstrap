@@ -15,22 +15,22 @@
 <form method="post" action="{{base_path}}/tehtava">
     <div class="form-group">
         <label>Nimi</label>
-        <input type="text" name="nimi" class="form-control">
+        <input type="text" name="nimi" class="form-control" value="{{attributes.tehtavanimi}}">
     </div>
 
     <div class="form-group">
         <label>Kuvaus</label>
-        <input type="text" name="kuvaus" class="form-control">
+        <input type="text" name="kuvaus" class="form-control" value="{{attributes.kuvaus}}">
     </div>
 
     <div class="form-group">
         <label>Luokkatunnus</label>
-        <input type="text" name="luokkatunnus" class="form-control">
+        <input type="text" name="luokkatunnus" class="form-control" value="{{attributes.luokkatunnus}}">
     </div>
 
     <div class="form-group">
         <label>Tärkeysaste</label>
-        <textarea name="tarkeysaste" class="form-control"></textarea>
+        <textarea name="tarkeysaste" class="form-control" value="{{attributes.tarkeysaste}}"></textarea>
     </div>
 
     <div class="form-group">
