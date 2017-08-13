@@ -19,7 +19,6 @@ class BaseModel {
     public function errors() {
         // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         $errors = array();
-        $validation_errors = array();
 
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
@@ -33,12 +32,12 @@ class BaseModel {
     }
 
     public function validate_string_length($string, $length) {
-        $errorsInThisTest = array();
+        $validation_errors = array();
 
-        if (strlen($string) > $length || strlen($string) == 0 || $string == '' || $string == null) {
-            $errorsInThisTest[] = "Nimen pituus ei kelpaa.";
+        if (1 == 1) {
+            $validation_errors[] = "Nimen pituus ei kelpaa.";
         }
-        return $errorsInThisTest;
+        return $validation_errors;
     }
 
     public function validate_int_size($int, $maxvalue) {
