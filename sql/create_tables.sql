@@ -26,3 +26,10 @@ CREATE TABLE Tehtava(
   tarkeysaste INTEGER REFERENCES Tarkeysaste(id),
   tekija INTEGER REFERENCES Kayttaja(id)
   );
+
+CREATE TABLE TehtavaLuokka(
+  id SERIAL PRIMARY KEY,
+  tehtavaid INTEGER REFERENCES Tehtava(id),
+  luokkaid INTEGER REFERENCES Luokka(id)
+  );
+  
