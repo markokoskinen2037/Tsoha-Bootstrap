@@ -22,9 +22,13 @@ class BaseModel {
 
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
-            if($this->{$methodToRun}() != null){ //Tapahtui virhe
-                array_push($errors, $this->{$methodToRun}());
+            $value = $this->{$methodToRun}();
+            
+            if($value != null){
+                $errors[] = $value;
             }
+            
+            
             
             // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
         }
