@@ -74,7 +74,7 @@ class Tehtava extends BaseModel {
     }
     
     public function validate_tarkeysaste(){
-        return $this->validate_int_value($this->validate_tarkeysaste(), 5);
+        return $this->validate_int_value($this->tarkeysaste, 5);
     }
 
 }
