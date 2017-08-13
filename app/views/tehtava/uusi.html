@@ -1,30 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Lisää muistiinpano</h1>
+<h1>Lisää tehtävä</h1>
 
-  <form method="post" action="{{base_path}}/tehtava">
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form method="post" action="{{base_path}}/tehtava">
     <div class="form-group">
-      <label>Nimi</label>
-      <input type="text" name="nimi" class="form-control">
+        <label>Nimi</label>
+        <input type="text" name="nimi" class="form-control">
     </div>
 
     <div class="form-group">
-      <label>Kuvaus</label>
-      <input type="text" name="kuvaus" class="form-control">
+        <label>Kuvaus</label>
+        <input type="text" name="kuvaus" class="form-control">
     </div>
 
     <div class="form-group">
-      <label>Luokkatunnus</label>
-      <input type="text" name="luokkatunnus" class="form-control">
+        <label>Luokkatunnus</label>
+        <input type="text" name="luokkatunnus" class="form-control">
     </div>
 
     <div class="form-group">
-      <label>Tärkeysaste</label>
-      <textarea name="tarkeysaste" class="form-control"></textarea>
+        <label>Tärkeysaste</label>
+        <textarea name="tarkeysaste" class="form-control"></textarea>
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">Lisää</button>
+        <button type="submit" class="btn btn-primary">Lisää</button>
     </div>
-  </form>
+</form>
 {% endblock %}
