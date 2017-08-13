@@ -64,6 +64,10 @@ class BaseModel {
             $validation_errors[] = "Liian suuri numeroarvo.";
         }
         
+        if($int == null){
+            $validation_errors[] = "Älä jätä mitään kenttää tyhjäksi!";
+        }
+        
         return $validation_errors;
     }
 
