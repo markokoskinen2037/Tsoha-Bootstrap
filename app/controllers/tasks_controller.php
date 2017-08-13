@@ -30,7 +30,7 @@ class TasksController extends BaseController {
             Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
         } else {
             // Pelissä oli jotain vikaa :(
-            View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
+            View::make('tehtava/uusi.html', array('errors' => $errors));
         }
 
 
