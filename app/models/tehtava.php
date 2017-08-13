@@ -70,11 +70,11 @@ class Tehtava extends BaseModel {
     }
     
     public function validate_luokkatunnus(){
-        
+        return $this->validate_int_value($this->luokkatunnus, 9999); //9999 on vain placeholder arvo
     }
     
     public function validate_tarkeysaste(){
-        
+        return $this->validate_int_value($this->validate_tarkeysaste(), 5);
     }
 
 }

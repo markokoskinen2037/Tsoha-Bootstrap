@@ -57,12 +57,14 @@ class BaseModel {
         return $validation_errors;
     }
 
-    public function validate_int_size($int, $maxvalue) {
-        if ($int <= $maxvalue) {
-            echo "this is fine";
-        } else {
-            
+    public function validate_int_value($int, $maxvalue) {
+        $validation_errors = array();
+        
+        if($int > $maxvalue){
+            $validation_errors[] = "Liian suuri numeroarvo.";
         }
+        
+        return $validation_errors;
     }
 
 }
