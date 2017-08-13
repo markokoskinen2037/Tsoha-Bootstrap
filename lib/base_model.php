@@ -21,7 +21,8 @@
 
       foreach($this->validators as $validator){
           $methodToRun = $validator;
-          $errors[] = $this->{$methodToRun}();
+
+          array_push($errors, $this->{$methodToRun}());
           
           
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
