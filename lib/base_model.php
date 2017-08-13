@@ -19,6 +19,7 @@ class BaseModel {
     public function errors() {
         // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         $errors = array();
+        $validation_errors = array();
 
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
