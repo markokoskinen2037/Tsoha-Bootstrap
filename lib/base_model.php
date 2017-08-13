@@ -23,9 +23,10 @@ class BaseModel {
 
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
-            array_push($validation_errors, $this->{$methodToRun}());
+            if($this->{$methodToRun}() != null){ //Tapahtui virhe
+                array_push($errors, $this->{$methodToRun}());
+            }
             
-            $errors = array_merge($errors, $validation_errors);
             // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
         }
         return $errors;
