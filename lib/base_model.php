@@ -21,7 +21,9 @@
 
       foreach($this->validators as $validator){
           $methodToRun = $validator;
-          $this->{$methodToRun}();
+          $errors[] = $this->{$methodToRun}();
+          
+          
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
       }
 
@@ -29,9 +31,12 @@
     }
     
     public function validate_string_length($string, $length){
+        $errorsInThisTest = array();
+        
         if(strlen($string) > $length || strlen($string) == 0){
-            $errors[] = "Nimen pituus ei kelpaa.";
+            $errorsInThisTest[] = "Nimen pituus ei kelpaa.";
         }
+        return $errorsInThisTest;
     }
     
     public function validate_int_size($int,$maxvalue){
