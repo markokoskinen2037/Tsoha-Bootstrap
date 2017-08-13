@@ -23,11 +23,18 @@ class TasksController extends BaseController {
             "tarkeysaste" => $params["tarkeysaste"]
         ));
         
+        $errors = $tehtava->errors();
+        
+        if(count($errors) == 0){
+            $tehtava->save();
+            Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
+        } else {
+            View::make("/tehtava/uusi.html", array("errors" => $errors));
+        }
         
         
-        $tehtava->save();
         
-        Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
+        
     }
     
     public static function create(){
