@@ -53,11 +53,6 @@ class Tehtava extends BaseModel {
     }
 
     public function save() {
-
-        $errors = $this->errors(); //Kutsutaan validoijaa
-        
-        
-
         $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste) RETURNING id');
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste));
         $row = $query->fetch();
@@ -67,7 +62,7 @@ class Tehtava extends BaseModel {
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
     
     public function validate_tehtavanimi(){
-        $this->validate_string_length($this->tehtavanimi, 100);
+        $validation_errors = $this->validate_string_length($this->tehtavanimi, 100);
     }
     
     public function validate_kuvaus(){
