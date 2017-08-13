@@ -66,7 +66,7 @@ class Tehtava extends BaseModel {
     }
     
     public function validate_kuvaus(){
-        
+        return $this->validate_string_length($this->kuvaus, 500);
     }
     
     public function validate_luokkatunnus(){

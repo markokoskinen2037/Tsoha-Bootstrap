@@ -37,10 +37,23 @@ class BaseModel {
 
     public function validate_string_length($string, $length) {
         $validation_errors = array();
-
-        if (1 == 1) {
-            $validation_errors[] = "Nimen pituus ei kelpaa.";
+        
+        if($length == 100){ //Tiedetään että tarkastellaan nimeä
+            if(strlen($string) > 100){
+                $validation_errors[] = "Nimi on liian pitkä.";
+            }
+            if($string == null){
+                $validation_errors[] = "Nimi ei voi olla null.";
+            }
         }
+        
+        if($length == 500){ //Tiedetään että tarkastellaan kuvausta
+            if(strlen($string) > 500){
+                $validation_errors[] = "Kuvaus on liian pitkä.";
+            }
+        }
+        
+        
         return $validation_errors;
     }
 
