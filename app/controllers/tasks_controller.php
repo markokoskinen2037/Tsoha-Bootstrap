@@ -16,20 +16,21 @@ class TasksController extends BaseController {
     public static function store(){
         $params = $_POST;
         
-        $tehtava = new Tehtava(array(
+        $attributes = array(
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
-        ));
+        );
         
+        $tehtava = new Tehtava($attributes);
         $errors = $tehtava->errors();
         
         if(count($errors) == 0){
             $tehtava->save();
             Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
         } else {
-            View::make('tehtava/uusi.html', array('errors' => $errors));
+            View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
         }
         
         
