@@ -22,10 +22,10 @@ class BaseModel {
 
         foreach ($this->validators as $validator) {
             $methodToRun = $validator;
-            $value = $this->{$methodToRun}();
+            $returnedArray = $this->{$methodToRun}();
             
-            if($value != null){
-                $errors[] = $value;
+            if($returnedArray != null){
+                $errors = array_merge($errors, $returnedArray);
             }
             
             
