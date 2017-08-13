@@ -61,5 +61,23 @@ class Tehtava extends BaseModel {
         $row = $query->fetch();
         $this->id = $row['id'];
     }
+    
+    //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
+    
+    public function validate_tehtavanimi(){
+        $this->validate_string_length($this->tehtavanimi, 100);
+    }
+    
+    public function validate_kuvaus(){
+        
+    }
+    
+    public function validate_luokkatunnus(){
+        
+    }
+    
+    public function validate_tarkeysaste(){
+        
+    }
 
 }
