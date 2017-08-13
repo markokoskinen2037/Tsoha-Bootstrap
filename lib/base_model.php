@@ -22,7 +22,7 @@
       foreach($this->validators as $validator){
           $methodToRun = $validator;
 
-          array_push($errors, $this->{$methodToRun}());
+          $errors = array_merge($errors, $this->{$methodToRun}());
           
           
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
