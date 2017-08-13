@@ -10,7 +10,7 @@ class HelloWorldController extends BaseController {
     public static function sandbox() {
 
         $tehtava = new Tehtava(array(
-            'tehtavanimi' => '',
+            'tehtavanimi' => '123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789',
             'kuvaus' => 'heheheheh',
             'luomisaika' => 'Now()',
             'luokkatunnus' => '1',
