@@ -29,8 +29,16 @@
     }
     
     public function validate_string_length($string, $length){
-        if(strlen($string) <= 100){
+        if(strlen($string) > $length || strlen($string) == 0){
+            $errors[] = "Nimen pituus ei kelpaa.";
+        }
+    }
+    
+    public function validate_int_size($int,$maxvalue){
+        if($int <= $maxvalue){
             echo "this is fine";
+        } else {
+            
         }
     }
 

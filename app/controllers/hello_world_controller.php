@@ -1,6 +1,5 @@
 <?php
 
-
 class HelloWorldController extends BaseController {
 
     public static function index() {
@@ -9,13 +8,26 @@ class HelloWorldController extends BaseController {
     }
 
     public static function sandbox() {
+
+        $tehtava = new Tehtava(array(
+            'tehtavanimi' => '',
+            'kuvaus' => 'heheheheh',
+            'luomisaika' => 'Now()',
+            'luokkatunnus' => '1',
+            'tarkeysaste' => '2'
+        ));
+        $errors = $tehtava->errors();
+
+        Kint::dump($errors);
+
+
         // Testaa koodiasi täällä
-        $tehtava = Tehtava::find(1);
-        $tehtavat = Tehtava::all();
-        
-        Kint::dump($tehtavat);
-        Kint::dump($tehtava);
-        View::make('helloworld.html');
+//        $tehtava = Tehtava::find(1);
+//        $tehtavat = Tehtava::all();
+//        
+//        Kint::dump($tehtavat);
+//        Kint::dump($tehtava);
+//        View::make('helloworld.html');
     }
 
     public static function esittely() {
