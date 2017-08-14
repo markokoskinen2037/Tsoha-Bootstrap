@@ -83,11 +83,11 @@ class Tehtava extends BaseModel {
     }
 
     public function destroy() {
-        
+
         $query1 = DB::connection()->prepare('DELETE FROM Tehtavaluokka WHERE tehtavaid=:id;');
         $query1->execute(array("id" => $this->id));
-        
-        
+
+
         $query2 = DB::connection()->prepare('DELETE FROM Tehtava WHERE Tehtava.id=:id;');
         $query2->execute(array("id" => $this->id));
     }

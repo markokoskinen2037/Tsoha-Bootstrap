@@ -36,15 +36,15 @@ $routes->get('/tehtava/:id', function($id) {
     TasksController::show($id);
 });
 
-$routes->get('/tehtava/:id/muokkaus', function($id){
+$routes->get('/tehtava/:id/muokkaus', function($id) {
     TasksController::edit($id);
 });
 
-$routes->post('/tehtava/:id/muokkaus', function($id){
+$routes->post('/tehtava/:id/muokkaus', function($id) {
     TasksController::update($id);
 });
 
-$routes->post('/tehtava/:id/poista', function($id){
+$routes->post('/tehtava/:id/poista', function($id) {
     TasksController::destroy($id);
 });
 

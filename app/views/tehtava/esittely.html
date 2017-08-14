@@ -3,41 +3,34 @@
 
 
 
-  <h1>{{taskdata.tehtavanimi}}</h1>
-  
-  
-  
-  <!-- Painikkeet tähän -->
-  <p>
-    <form method="post" action="{{base_path}}/tehtava/{{taskdata.id}}/poista" style="display: inline-block;">
-        <button type="submit" class="btn btn-danger">Poista</button>
-    </form>
-  
-    <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
-  </p>
-  
-  
-  <!-- Tiedot tulee listana tähän -->
-  <ul>
+<h1>{{taskdata.tehtavanimi}}</h1>
+
+
+<!-- Painikkeet tähän -->
+<p>
+<form method="post" action="{{base_path}}/tehtava/{{taskdata.id}}/poista" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
+
+<a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
+</p>
+
+
+<!-- Tiedot tulee listana tähän -->
+<ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
     <li><strong>Luokkatunnus:</strong>{{taskdata.luokkatunnus}}</li>
     <li><strong>Status:</strong>
         {% if task.tehty %}
-            <label class="label label-success">tehty
+        <label class="label label-success">tehty
         {% else %}
         <label class="label label-danger">kesken
         {% endif %}
     </li>
-  </ul>
-  
-  
-  <!-- Kuvaus tulee tähän -->
-  <p>
-    {{taskdata.kuvaus}}
-  </p>
-  
+</ul>
+<!-- Kuvaus tulee tähän -->
+ <p>{{taskdata.kuvaus}}</p>
 
 
 
-  
 {% endblock %}
