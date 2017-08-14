@@ -9,11 +9,13 @@
   
   <!-- Painikkeet tähän -->
   <p>
-    <button href="{{base_path}}/tehtava/{{attributes.id}}/destroy" class="btn btn-danger">Poista</button> <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
+    <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
+    <a href="{{base_path}}/tehtava/{{taskdata.id}}/destroy" class="btn btn-default">Poista</a>
   </p>
   <!-- Tiedot tulee listana tähän -->
   <ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
+    <li><strong>Luokkatunnus:</strong>{{taskdata.luokkatunnus}}</li>
     <li><strong>Status:</strong>
         {% if task.tehty %}
             <label class="label label-success">tehty
@@ -21,7 +23,6 @@
         <label class="label label-danger">kesken
         {% endif %}
     </li>
-    <li><strong>Luomisaika:</strong>{{taskdata.luokkatunnus}}</li>
   </ul>
   <!-- Kuvaus tulee tähän -->
   <p>
