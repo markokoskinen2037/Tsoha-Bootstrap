@@ -77,9 +77,9 @@ class Tehtava extends BaseModel {
         return $this->validate_int_value($this->tarkeysaste, 5);
     }
 
-    public function update() {
-        $query = DB::connection()->prepare('UPDATE Tehtava (tehtavanimi,kuvaus,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus,:luokkatunnus, :tarkeysaste)');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste));
+    public function update($id) {
+        $query = DB::connection()->prepare('UPDATE Tehtava (tehtavanimi,kuvaus,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus,:luokkatunnus, :tarkeysaste) WHERE id=:id');
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
     }
 
     public function destroy($id) {

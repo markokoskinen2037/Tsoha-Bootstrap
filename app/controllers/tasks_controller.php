@@ -61,7 +61,7 @@ class TasksController extends BaseController {
         if(count($errors) > 0){
             View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
         } else {
-            $tehtava->update();
+            $tehtava->update($id);
             Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu.!"));
         }
     }
