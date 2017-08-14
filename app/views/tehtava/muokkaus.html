@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Muokkaa tehtävää x</h1>
+  <h1>Muokkaa tehtävää {{attributes.tehtavanimi}}</h1>
 
-  <form>
+  <form method="post" action="{{base_path}}/tehtava/{{attributes.id}}/muokkaus">
     <div class="checkbox">
       <label>
         <input type="checkbox">
@@ -15,15 +15,15 @@
     </div>
     <div class="form-group">
       <label>Kuvaus</label>
-      <input type="text" class="form-control" value="Pese nyt ne pyykit!">
+      <input type="text" class="form-control" value="{{attributes.kuvaus}}">
     </div>
     <div class="form-group">
       <label>Luokkatunnus</label>
-      <input type="text" class="form-control" value="1">
+      <input type="text" class="form-control" value="{{attributes.luokkatunnus}}">
     </div>
     <div class="form-group">
       <label>Tärkeysaste</label>
-      <input type="text" class="form-control" value="2">
+      <input type="text" class="form-control" value="{{attributes.tarkeysaste}}">
       </textarea>
     </div>
     <div class="form-group">
