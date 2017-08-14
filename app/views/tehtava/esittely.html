@@ -9,10 +9,11 @@
   
   <!-- Painikkeet tähän -->
   <p>
-    <button method="post" type="submit" href="{{base_path}}/tehtava/{{taskdata.id}}/poista" class="btn btn-danger">Poista</button>
+    <form method="post" action="{{base_path}}/tehtava/{{taskdata.id}}/poista" style="display: inline-block;">
     <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
-    
   </p>
+  
+  
   <!-- Tiedot tulee listana tähän -->
   <ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
@@ -25,8 +26,15 @@
         {% endif %}
     </li>
   </ul>
+  
+  
   <!-- Kuvaus tulee tähän -->
   <p>
     {{taskdata.kuvaus}}
   </p>
+  
+
+
+
+  
 {% endblock %}
