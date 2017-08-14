@@ -44,7 +44,7 @@ $routes->post('/tehtava/:id/muokkaus', function($id){
     TasksController::update($id);
 });
 
-$routes->post('/tehtava/:id/destroy', function($id){
+$routes->post('/tehtava/:id/poista', function($id){
     TasksController::destroy($id);
 });
 
