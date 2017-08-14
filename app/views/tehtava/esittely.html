@@ -9,7 +9,7 @@
   
   <!-- Painikkeet tähän -->
   <p>
-    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
+    <button href="{{base_path}}/tehtava/{{attributes.id}}/destroy" class="btn btn-danger">Poista</button> <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
   </p>
   <!-- Tiedot tulee listana tähän -->
   <ul>
@@ -21,7 +21,7 @@
         <label class="label label-danger">kesken
         {% endif %}
     </li>
-    <li><strong>Luomisaika:</strong>{{taskdata.luomisaika}}</li>
+    <li><strong>Luomisaika:</strong>{{taskdata.luokkatunnus}}</li>
   </ul>
   <!-- Kuvaus tulee tähän -->
   <p>
