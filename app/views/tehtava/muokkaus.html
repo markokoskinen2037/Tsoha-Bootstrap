@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Muokkaa tehtävää {{attributes.tehtavanimi}}</h1>
+  <h1>Muokkaat tehtävää: {{attributes.tehtavanimi}}</h1>
 
   <form method="post" action="{{base_path}}/tehtava/{{attributes.id}}/muokkaus">
     <div class="checkbox">

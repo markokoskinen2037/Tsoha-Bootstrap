@@ -47,7 +47,7 @@ class TasksController extends BaseController {
         $params = $_POST;
         
         $attributes = array(
-            "tehtavanimi" => $params["nimi"],
+            "tehtavanimi" => $params["tehtavanimi"],
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
