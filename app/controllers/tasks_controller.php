@@ -49,7 +49,7 @@ class TasksController extends BaseController {
         
         
         $attributes = array(
-            "tetavanimi" => $params["tehtavanimi"],
+            "tehtavanimi" => $params["tehtavanimi"],
         );
         
         $tehtava = new Tehtava($attributes);
