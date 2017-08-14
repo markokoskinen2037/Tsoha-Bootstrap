@@ -62,7 +62,7 @@ class TasksController extends BaseController {
             View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
         } else {
             $tehtava->update();
-            Redirect::to("/tehtava/" . $game->id, array("message" => "Muokkaukset tallennettu.!"));
+            Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu.!"));
         }
     }
     

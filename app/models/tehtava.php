@@ -78,10 +78,8 @@ class Tehtava extends BaseModel {
     }
 
     public function update() {
-        $query = DB::connection()->prepare('UPDATE Tehtava (tehtavanimi,kuvaus,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus,:luokkatunnus, :tarkeysaste) RETURNING id');
+        $query = DB::connection()->prepare('UPDATE Tehtava (tehtavanimi,kuvaus,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus,:luokkatunnus, :tarkeysaste)');
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste));
-        $row = $query->fetch();
-        $this->id = $row['id'];
     }
 
     public function destroy($id) {
