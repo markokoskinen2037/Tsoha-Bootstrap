@@ -78,7 +78,7 @@ class Tehtava extends BaseModel {
     }
 
     public function update($id) {
-        $query = DB::connection()->prepare('UPDATE Tehtava (tehtavanimi,kuvaus,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus,:luokkatunnus, :tarkeysaste) WHERE id=:id');
+        $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=;kuvaus,luokkatunnus=;luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
     }
 
