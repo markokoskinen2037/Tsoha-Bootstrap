@@ -37,5 +37,39 @@ class TasksController extends BaseController {
     public static function create() {
         View::make('tehtava/uusi.html');
     }
+    
+    public static function edit($id){
+        $tehtava = Tehtava::find($id);
+        View::make("tehtava/muokkaus.html", array("attributes"  => $tehtava));
+    }
+    
+    public static function update($id){
+        $params = $_POST;
+        
+        $attributes = array(
+            "tehtavanimi" => $params["nimi"],
+            "kuvaus" => $params["kuvaus"],
+            "luokkatunnus" => $params["luokkatunnus"],
+            "tarkeysaste" => $params["tarkeysaste"]
+        );
+        
+        $tehtava = new Tehtava($attributes);
+        $errors = $tehtava->errors();
+        
+        if(count($errors) > 0){
+            View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
+        } else {
+            $tehtava->update();
+            Redirect::to("/tehtava/" . $game->id, array("message" => "Muokkaukset tallennettu.!"));
+        }
+    }
+    
+    public static function destroy($id){
+        $tehtava = new Tehtava(array("id" => $id));
+        
+        $tehtava->destroy();
+        
+        Redirect::to("/tehtava", array("message" => "Tehtava poistettu."));
+    }
 
 }

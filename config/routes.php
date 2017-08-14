@@ -36,6 +36,18 @@ $routes->get('/tehtava/:id', function($id) {
     TasksController::show($id);
 });
 
+$routes->get('/tehtava/:id/edit', function($id){
+    TasksController::edit($id);
+});
+
+$routes->post('/tehtava/:id/edit', function($id){
+    TasksController::update($id);
+});
+
+$routes->post('/tehtava/:id/destroy', function($id){
+    TasksController::destroy($id);
+});
+
 $routes->post('/tehtava', function() {
     TasksController::store();
 });
