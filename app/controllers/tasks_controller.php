@@ -45,12 +45,14 @@ class TasksController extends BaseController {
     
     public static function update($id){
         $params = $_POST;
+       
+        $checkboxvalue = $_GET['laatikko'];
+        
         
         
         $attributes = array(
             "tehtavanimi" => $params["tehtavanimi"],
             "kuvaus" => $params["kuvaus"],
-            "tehty" => $params["tehty"],
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
             
