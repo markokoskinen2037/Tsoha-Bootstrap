@@ -20,15 +20,4 @@ class UserController extends BaseController {
         }
     }
 
-    public static function authenticate($username, $password) {
-        $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE kirjautumisnimi = :kirjautumisnimi AND salasana = :salasana LIMIT 1');
-        $query->execute(array('kirjautumisnimi' => $username, 'salasana' => $password));
-        $row = $query->fetch();
-        if ($row) {
-            return new User($username,$salasana);
-        } else {
-            return null;
-        }
-    }
-
 }
