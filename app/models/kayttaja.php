@@ -21,7 +21,7 @@ class User extends BaseModel {
         $query->execute(array('kirjautumisnimi' => $kirjautumisnimi, 'salasana' => $salasana));
         $row = $query->fetch();
         if ($row) {
-            return new User(array("kirjautumisnimi" => $kirjautumisnimi, "salasana" => $salasana)); // ???????????????????????????????
+            return new User(array("kirjautumisnimi" => $kirjautumisnimi, "salasana" => $salasana));
         } else {
             return null;
         }
