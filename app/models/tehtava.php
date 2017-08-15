@@ -9,8 +9,8 @@ class Tehtava extends BaseModel {
         $this->validators = array("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
     }
 
-    public static function all() {
-        $query = DB::connection()->prepare("SELECT * FROM Tehtava");
+    public static function all() { //Huom. tärkeysasteen mukainen järjestys!
+        $query = DB::connection()->prepare("SELECT * FROM Tehtava ORDER BY tarkeysaste DESC;");
         $query->execute();
         $rows = $query->fetchAll();
         $tehtavat = array();
