@@ -46,16 +46,8 @@ class TasksController extends BaseController {
     public static function update($id) {
         $params = $_POST;
         
-        $tehty = "null";
-
-        if($_POST['laatikko'] == "on"){
-            $tehty = "t";
-        } else {
-            $tehty = "f";
-        }
         
-        Kint::dump($tehty);
-
+        $tehty = "t";
 
 
         $attributes = array(
