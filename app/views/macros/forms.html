@@ -1,11 +1,19 @@
 {% macro poisto_nappain(action, text) %}
-  <form method="post" action="{{action}}" style="display: inline-block;">
+<form method="post" action="{{action}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
-  </form>
+</form>
 {% endmacro %}
 
 {% macro poisto_nappain_pieni(action, text) %}
-  <form method="post" action="{{action}}" style="display: inline-block;">
+<form method="post" action="{{action}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger btn-sm">{{text|default('Poista')}}</button>
-  </form>
+</form>
+{% endmacro %}
+
+{% macro muokkaus_nappain(id, text) %}
+<a href="{{base_path}}/tehtava/{{id}}/muokkaus" class="btn btn-default">{{text|default('Muokkaa')}}</a>
+{% endmacro %}
+
+{% macro muokkaus_nappain_pieni(id, text) %}
+<a href="{{base_path}}/tehtava/{{id}}/muokkaus" class="btn btn-default btn-sm">{{text|default('Muokkaa')}}</a>
 {% endmacro %}

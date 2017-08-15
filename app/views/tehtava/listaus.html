@@ -43,7 +43,7 @@
               {% endif %}
           </td>
           <td>{{task.luomisaika}}</td>
-          <td><a class="btn btn-default btn-sm" href="{{base_path}}/tehtava/{{task.id}}/muokkaus">Muokkaa</a></td>
+          <td>{{forms.muokkaus_nappain_pieni("#task.id")}}</td>
           <td>{{forms.poisto_nappain_pieni("#{base_path}/tehtava/#{task.id}/poista")}}</td>
         </tr>
       {% endfor %}
