@@ -28,11 +28,12 @@
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
     <li><strong>Luokkatunnus:</strong>{{taskdata.luokkatunnus}}</li>
     <li><strong>Status:</strong>
-        {% if task.tehty %}
+        {% if taskdata.tehty %}
         <label class="label label-success">tehty
         {% else %}
         <label class="label label-danger">kesken
         {% endif %}
+        
     </li>
 </ul>
 <!-- Kuvaus tulee tähän -->
