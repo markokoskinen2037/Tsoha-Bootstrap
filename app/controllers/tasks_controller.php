@@ -45,9 +45,12 @@ class TasksController extends BaseController {
 
     public static function update($id) {
         $params = $_POST;
+
+        $tehty = null;
         
-        
-        $tehty = "t";
+        if(!empty($_POST['laatikko'])){ //Eli jos laatikko saa jonkun arvon eli se on päällä/valittu
+            $tehty = "t";
+        }
 
 
         $attributes = array(
