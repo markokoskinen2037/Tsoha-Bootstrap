@@ -15,6 +15,7 @@
         <th>Status</th>
         <th>Lisäyspäivä</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -33,6 +34,7 @@
           </td>
           <td>{{task.luomisaika}}</td>
           <td><a class="btn btn-default btn-sm" href="{{base_path}}/tehtava/{{task.id}}/muokkaus">Muokkaa</a></td>
+          <td><a class="btn btn-warning btn-sm" href="{{base_path}}/tehtava/{{task.id}}/poista">Muokkaa</a></td>
         </tr>
       {% endfor %}
     </tbody>
