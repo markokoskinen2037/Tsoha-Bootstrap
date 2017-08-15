@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+
+{% if message %}
+<div class="alert label-success">
+    <ul>
+        <li>{{message}}</li>
+    </ul>
+</div>
+{% endif %}
+
   <h1>Tervetuloa muistilistaan!</h1>
   
   <p>Ole hyvä aloita rekisteröitymällä palveluun. Jos sinulla on jo käyttäjätili - voit kirjautua sisään.</p>

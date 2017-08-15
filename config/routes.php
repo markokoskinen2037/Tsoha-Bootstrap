@@ -52,3 +52,10 @@ $routes->post('/tehtava', function() {
     TasksController::store();
 });
 
+$routes->get('/login', function() {
+    UserController::login();
+});
+
+$routes->post('/login', function() {
+    UserController::handle_login();
+});
