@@ -19,7 +19,7 @@
 <!-- Painikkeet tähän -->
 <p>
     {{forms.poisto_nappain("#{base_path}/tehtava/#{taskdata.id}/poista")}}
-    {{forms.muokkaus_nappain("#{taskdata.id}")}}
+    {{forms.muokkaus_nappain("#{base_path}/tehtava/#{taskdata.id}/muokkaus")}}
 
     <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
 </p>
