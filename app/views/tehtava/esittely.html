@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <div class="alert label-success">
+    {%if message %}
     <ul>
         <li>{{message}}</li>
     </ul>
+    {% endif %}
 </div>
 
 
