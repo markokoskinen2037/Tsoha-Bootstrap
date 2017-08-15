@@ -53,6 +53,8 @@ class TasksController extends BaseController {
         } else {
             $tehty = "f";
         }
+        
+        Kint::dump($tehty);
 
 
 
