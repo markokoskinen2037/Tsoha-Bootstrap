@@ -20,10 +20,9 @@
 
 <!-- Painikkeet tähän -->
 <p>
-{{forms.poisto_nappain()}}
- {{forms.poisto_nappain("#{base_path}/tehtava/#{tehtava.id}/poista")}}
+    {{forms.poisto_nappain("#{base_path}/tehtava/#{taskdata.id}/poista")}}
 
-<a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
+    <a href="{{base_path}}/tehtava/{{taskdata.id}}/muokkaus" class="btn btn-default">Muokkaa</a>
 </p>
 
 
@@ -34,15 +33,15 @@
     <li><strong>Status:</strong>
         {% if taskdata.tehty %}
         <label class="label label-success">tehty
-        {% else %}
-        <label class="label label-danger">kesken
-        {% endif %}
-        
-    </li>
-</ul>
-<!-- Kuvaus tulee tähän -->
- <p>{{taskdata.kuvaus}}</p>
+            {% else %}
+            <label class="label label-danger">kesken
+                {% endif %}
+
+                </li>
+                </ul>
+                <!-- Kuvaus tulee tähän -->
+                <p>{{taskdata.kuvaus}}</p>
 
 
 
-{% endblock %}
+                {% endblock %}
