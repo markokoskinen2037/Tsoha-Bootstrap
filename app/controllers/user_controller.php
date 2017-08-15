@@ -9,7 +9,7 @@ class UserController extends BaseController {
     public static function handle_login() {
         $params = $_POST;
 
-        $user = User::authenticate($params['username'], $params['password']);
+        $user = User::authenticate($params['kirjautumisnimi'], $params['salasana']);
 
         if (!$user) {
             View::make('kayttaja/kirjautuminen.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['username']));
