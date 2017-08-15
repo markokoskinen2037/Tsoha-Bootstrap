@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+{% if messages %}
 <div class="alert label-success">
-    {%if (!empty(message) %}
+    {% for message in messages %}
     <ul>
         <li>{{message}}</li>
     </ul>
-    {% endif %}
+    {% endfor %}
 </div>
+{% endif %}
 
 
 <h1>{{taskdata.tehtavanimi}}</h1>
