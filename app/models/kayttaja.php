@@ -1,6 +1,6 @@
 <?php
 
-class Kayttaja extends BaseModel {
+class User extends BaseModel {
     
     public $id, $kirjautumisnimi, $salasana, $admin;
     
