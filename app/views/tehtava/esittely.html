@@ -3,7 +3,7 @@
 
 
 <div class="alert label-success">
-    {%if message %}
+    {%if (!empty(message) %}
     <ul>
         <li>{{message}}</li>
     </ul>
