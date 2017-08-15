@@ -46,7 +46,7 @@ class TasksController extends BaseController {
     public static function update($id){
         $params = $_POST;
         
-        
+        Kint::dump($params);
         
         $attributes = array(
             "tehtavanimi" => $params["tehtavanimi"],
