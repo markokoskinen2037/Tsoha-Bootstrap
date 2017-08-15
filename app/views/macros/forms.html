@@ -10,10 +10,10 @@
 </form>
 {% endmacro %}
 
-{% macro muokkaus_nappain(id, text) %}
-<a href="{{base_path}}/tehtava/{{id}}/muokkaus" class="btn btn-default">{{text|default('Muokkaa')}}</a>
+{% macro muokkaus_nappain(link, text) %}
+<a href="{{link}}" class="btn btn-default">{{text|default('Muokkaa')}}</a>
 {% endmacro %}
 
-{% macro muokkaus_nappain_pieni(id, text) %}
-<a href="{{base_path}}/tehtava/{{id}}/muokkaus" class="btn btn-default btn-sm">{{text|default('Muokkaa')}}</a>
+{% macro muokkaus_nappain_pieni(link, text) %}
+<a href="{{link}}" class="btn btn-default btn-sm">{{text|default('Muokkaa')}}</a>
 {% endmacro %}
