@@ -45,18 +45,21 @@ class TasksController extends BaseController {
 
     public static function update($id) {
         $params = $_POST;
-
-//        if (isset($_POST['laatikko'])) {
-//            print_r($_POST); //print all checked elements
-//        }
         
-        Kint::dump($_POST['laatikko']);
+        $tehty = "null";
+
+        if($_POST['laatikko'] == "on"){
+            $tehty = "t";
+        } else {
+            $tehty = "f";
+        }
 
 
 
         $attributes = array(
             "tehtavanimi" => $params["tehtavanimi"],
             "kuvaus" => $params["kuvaus"],
+            "tehty" => $tehty,
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
         );
