@@ -46,11 +46,9 @@ class TasksController extends BaseController {
     public static function update($id) {
         $params = $_POST;
 
-        $tehty = null;
-        
-        if(!empty($_POST['laatikko'])){ //Eli jos laatikko saa jonkun arvon eli se on päällä/valittu
-            $tehty = "t";
-        }
+
+        $tehty = "t";
+
 
 
         $attributes = array(
@@ -68,7 +66,7 @@ class TasksController extends BaseController {
             View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
         } else {
             $tehtava->update($id);
-            Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu.!"));
+            Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu."));
         }
     }
 
