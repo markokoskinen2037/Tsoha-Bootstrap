@@ -53,6 +53,7 @@ class TasksController extends BaseController {
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"],
+            "tehty" => $params["tehty"]
         );
         
         $tehtava = new Tehtava($attributes);
