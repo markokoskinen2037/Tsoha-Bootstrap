@@ -34,7 +34,7 @@
           </td>
           <td>{{task.luomisaika}}</td>
           <td><a class="btn btn-default btn-sm" href="{{base_path}}/tehtava/{{task.id}}/muokkaus">Muokkaa</a></td>
-          <td><a class="btn btn-warning btn-sm" href="{{base_path}}/tehtava/{{task.id}}/poista">Muokkaa</a></td>
+          <td><a method="post" type="submit" action="{{base_path}}/tehtava/{{task.id}}/poista" class="btn btn-danger btn-sm" >Poista</a></td>
         </tr>
       {% endfor %}
     </tbody>
