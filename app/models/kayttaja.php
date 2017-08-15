@@ -16,12 +16,12 @@ class User extends BaseModel {
         $this->id = $row['id'];
     }
 
-    public static function authenticate($username, $password) {
+    public static function authenticate($kirjautumisnimi, $salasana) {
         $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE kirjautumisnimi = :kirjautumisnimi AND salasana = :salasana LIMIT 1');
-        $query->execute(array('kirjautumisnimi' => $username, 'salasana' => $password));
+        $query->execute(array('kirjautumisnimi' => $kirjautumisnimi, 'salasana' => $salasana));
         $row = $query->fetch();
         if ($row) {
-            return new User($username, $salasana);
+            return new User($kirjautumisnimi, $salasana);
         } else {
             return null;
         }
