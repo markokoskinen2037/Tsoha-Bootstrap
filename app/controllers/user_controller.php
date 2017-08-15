@@ -12,7 +12,7 @@ class UserController extends BaseController {
         $user = User::authenticate($params['kirjautumisnimi'], $params['salasana']);
 
         if (!$user) {
-            View::make('kayttaja/kirjautuminen.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['username']));
+            View::make('kayttaja/kirjautuminen.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'kirjautumisnimi' => $params['kirjautumisnimi']));
         } else {
             $_SESSION['user'] = $user->id;
 
