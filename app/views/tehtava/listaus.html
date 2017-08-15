@@ -1,6 +1,15 @@
 {% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
+
+{% if message %}
+<div class="alert label-success">
+    <ul>
+        <li>{{message}}</li>
+    </ul>
+</div>
+{% endif %}
+
   <h1>Käyttäjän admin muistilista</h1>
 
   <p>
