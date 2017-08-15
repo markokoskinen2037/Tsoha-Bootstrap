@@ -2,12 +2,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if messages %}
+{% if message %}
 <div class="alert label-success">
     <ul>
-        {% for message in messages %}
         <li>{{message}}</li>
-        {% endfor %}
     </ul>
 </div>
 {% endif %}

@@ -28,7 +28,7 @@ class TasksController extends BaseController {
 
         if (count($errors) == 0) {
             $tehtava->save();
-            Redirect::to('/tehtava/' . $tehtava->id, array('messages' => 'Tehtävä lisätty!'));
+            Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
         } else {
             View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
         }
