@@ -4,11 +4,11 @@
 
 {% if messages %}
 <div class="alert label-success">
-    {% for message in messages %}
     <ul>
+        {% for message in messages %}
         <li>{{message}}</li>
+        {% endfor %}
     </ul>
-    {% endfor %}
 </div>
 {% endif %}
 
