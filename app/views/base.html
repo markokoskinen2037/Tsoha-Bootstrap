@@ -45,7 +45,10 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
+                        {% if user_logged_in %}
                             <li><a href="https://markokos.users.cs.helsinki.fi/tsoha/kirjautuminen">Kirjaudu sisään</a></li>
+                        {% else %}
+                            <li><a href="https://markokos.users.cs.helsinki.fi/tsoha/uloskirjautuminen">Kirjaudu ulos</a></li>
                 </div>
             </div>
         </nav>
