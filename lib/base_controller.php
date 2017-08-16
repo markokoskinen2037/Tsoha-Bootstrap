@@ -4,7 +4,9 @@ class BaseController {
 
     public static function get_user_logged_in() {
         
-        return new User(array("kirjautumisnimi" => "eitoimisessionidei", "salasana" => "asdasd"));
+//        return new User(array("kirjautumisnimi" => "eitoimisessionidei", "salasana" => "asdasd"));
+        
+        $_SESSION['user'] = 1;
         
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user'];
