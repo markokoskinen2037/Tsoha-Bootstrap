@@ -32,12 +32,12 @@ class Tehtava extends BaseModel {
     }
 
     public static function findUsersTasks($tekija_id) {
-        $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE tekija = :id LIMIT 1");
+        $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE tekija = :id");
         $query->execute(array("id" => $tekija_id));
-        $row = $query->fetch();
+        $rows = $query->fetch();
 
-        if ($row) {
-            $tehtava = new Tehtava(array(
+        foreach ($rows as $row) {
+            $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
@@ -47,7 +47,7 @@ class Tehtava extends BaseModel {
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
             ));
-            return $tehtava;
+            return $tehtavat;
         }
         return null;
     }
