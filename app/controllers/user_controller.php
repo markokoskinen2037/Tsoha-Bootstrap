@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 
 class UserController extends BaseController {
 
@@ -14,7 +14,7 @@ class UserController extends BaseController {
         if (!$user) {
             View::make('kayttaja/kirjautuminen.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'kirjautumisnimi' => $params['kirjautumisnimi']));
         } else {
-            $_SESSION['user'] = $user->id;
+            $_SESSION['user'] = 1; //testausta varten.......
 
             Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $user->kirjautumisnimi . '!'));
         }
