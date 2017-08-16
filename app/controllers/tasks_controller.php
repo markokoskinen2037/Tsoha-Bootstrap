@@ -51,31 +51,32 @@ class TasksController extends BaseController {
     public static function update($id) {
         $params = $_POST;
 
+        if(isset($params['laatikko'])){
+            $tehty = "t";
+        }else{
+            $tehty = "f";
+        }
 
-        $tehty = "t";
-        
-        $tehty = $params['laatikko'];
-        Kint::dump($tehty);
-//
-//
-//
-//        $attributes = array(
-//            "tehtavanimi" => $params["tehtavanimi"],
-//            "kuvaus" => $params["kuvaus"],
-//            "tehty" => $tehty,
-//            "luokkatunnus" => $params["luokkatunnus"],
-//            "tarkeysaste" => $params["tarkeysaste"]
-//        );
-//
-//        $tehtava = new Tehtava($attributes);
-//        $errors = $tehtava->errors();
-//
-//        if (count($errors) > 0) {
-//            View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
-//        } else {
-//            $tehtava->update($id);
-//            Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu."));
-//        }
+
+
+
+        $attributes = array(
+            "tehtavanimi" => $params["tehtavanimi"],
+            "kuvaus" => $params["kuvaus"],
+            "tehty" => $tehty,
+            "luokkatunnus" => $params["luokkatunnus"],
+            "tarkeysaste" => $params["tarkeysaste"]
+        );
+
+        $tehtava = new Tehtava($attributes);
+        $errors = $tehtava->errors();
+
+        if (count($errors) > 0) {
+            View::make("tehtava/muokkaus.html", array("errors" => $errors, "attributes" => $attributes));
+        } else {
+            $tehtava->update($id);
+            Redirect::to("/tehtava/" . $id, array("message" => "Muokkaukset tallennettu."));
+        }
     }
 
     public static function destroy($id) {
