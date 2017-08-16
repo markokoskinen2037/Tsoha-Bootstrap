@@ -1,6 +1,7 @@
+{% import "macros/forms.html" as forms %}
 {% extends "base.html" %}
 {% block content %}
-<h1>Muokkaat tehtävää: {{attributes.tehtavanimi}}</h1>
+
 
 {% if errors %}
 <div class="alert alert-danger">
@@ -11,6 +12,9 @@
     </ul>
 </div>
 {% endif %}
+
+{% if user_logged_in %}
+<h1>Muokkaat tehtävää: {{attributes.tehtavanimi}}</h1>
 
 <form method="post" action="{{base_path}}/tehtava/{{attributes.id}}/muokkaus">
     <div class="checkbox">
@@ -49,4 +53,7 @@
         <button type="submit" class="btn btn-primary">Tallenna</button>
     </div>
 </form>
+{% else %}
+{{forms.tama_toiminto_vaatii_kirjautumisen()}}
+{% endif %}
 {% endblock %}
