@@ -10,7 +10,9 @@
 </div>
 {% endif %}
 
-  <h1>Käyttäjän admin muistilista</h1>
+% if user_logged_in %}
+  <h1>Käyttäjän {{user_logged_in.name}} muistilista</h1>
+{% endif %}
 
   <p>
     <a href="{{base_path}}/tehtava/uusi" class="btn btn-success">Lisää tehtava</a>
