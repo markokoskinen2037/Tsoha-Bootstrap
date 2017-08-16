@@ -9,12 +9,12 @@ class User extends BaseModel {
     }
 
     public static function find($id) {
-        $query = DB::connection()->prepare("SELECT * FROM Kayttaha WHERE id = :id LIMIT 1");
+        $query = DB::connection()->prepare("SELECT * FROM Kayttaja WHERE id = :id LIMIT 1");
         $query->execute(array("id" => $id));
         $row = $query->fetch();
 
         if ($row) {
-            $kayttaja = new Tehtava(array(
+            $kayttaja = new Kayttaja(array(
                 "id" => $row["id"],
                 "kirjautumisnimi" => $row["kirjautumisnimi"],
                 "salasana" => $row["salasana"],
