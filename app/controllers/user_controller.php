@@ -14,10 +14,9 @@ class UserController extends BaseController {
         if (!$user) {
             View::make('kayttaja/kirjautuminen.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'kirjautumisnimi' => $params['kirjautumisnimi']));
         } else {
-            $arvo = 1;
-            $_SESSION['user'] = $arvo; //testausta varten.......
-
-            Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $user->kirjautumisnimi . '!'));
+            $_SESSION['user'] = $user->id;
+            Kint::dump($user);
+            //Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $user->kirjautumisnimi . '!'));
         }
     }
 
