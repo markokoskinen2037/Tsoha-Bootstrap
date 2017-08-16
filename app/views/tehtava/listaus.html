@@ -25,9 +25,10 @@
           <th>Kuvaus</th>
           <th>Kiireellisyys (1-5)</th>
           <th>Status</th>
-          <th>Lisäyspäivä</th>
-          <th></th>
-          <th></th>
+          <th>Lisäysaika</th>
+          <th>Muokkaus</th>
+          <th>Poisto</th>
+          <th>Merkitse tehdyksi</th>
         </tr>
       </thead>
 
@@ -47,6 +48,11 @@
             <td>{{task.luomisaika}}</td>
             <td>{{forms.muokkaus_nappain_pieni("#{base_path}/tehtava/#{task.id}/muokkaus")}}</td>
             <td>{{forms.poisto_nappain_pieni("#{base_path}/tehtava/#{task.id}/poista")}}</td>
+            <td>
+                <form method="post" action="{{base_path}}/tehtava/#{task.id}/tehty" style="display: inline-block;">
+                    <button type="submit" class="btn btn-danger">Tehty</button>
+                </form>
+            </td>
           </tr>
         {% endfor %}
       </tbody>
