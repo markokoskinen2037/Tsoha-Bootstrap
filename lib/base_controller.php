@@ -5,18 +5,18 @@ class BaseController {
     public static function get_user_logged_in() {
         
         
-            return new User(array("kirjautumisnimi" => "toimii", "salasana" => "hehe"));
+
         
         
         
         
-//        if (isset($_SESSION['user'])) {
-//            $user_id = $_SESSION['user'];
-//            $user = User::find($user_id);
-//            return $user;
-//        } else {
-//            return null;
-//        }
+        if (isset($_SESSION['user'])) {
+            $user_id = $_SESSION['user'];
+            $user = User::find($user_id);
+            return $user;
+        } else {
+            return null;
+        }
     }
 
     public static function check_logged_in() {
