@@ -34,7 +34,7 @@ class Tehtava extends BaseModel {
     public static function findUsersTasks($tekija_id) {
         $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE tekija = :id");
         $query->execute(array("id" => $tekija_id));
-        $rows = $query->fetch();
+        $rows = $query->fetchAll();
         $tehtavat = array();
 
         foreach ($rows as $row) {
