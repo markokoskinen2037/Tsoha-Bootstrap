@@ -6,6 +6,7 @@ class BaseController {
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user'];
             echo $user_id;
+            Kint::dump($user_id);
             return new User(User::find($user_id));
         } else {
             return null;
