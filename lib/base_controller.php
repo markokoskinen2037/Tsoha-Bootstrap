@@ -5,9 +5,8 @@ class BaseController {
     public static function get_user_logged_in() {
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user'];
-            echo $user_id;
-            Kint::dump($user_id);
-            return new User(User::find($user_id));
+            $user = User::find($user_id);
+            return user;
         } else {
             return null;
         }
