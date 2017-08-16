@@ -6,7 +6,6 @@ class BaseController {
         
 //        return new User(array("kirjautumisnimi" => "eitoimisessionidei", "salasana" => "asdasd"));
         
-        $_SESSION['user'] = 1;
         
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user'];
