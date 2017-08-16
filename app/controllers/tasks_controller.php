@@ -9,8 +9,8 @@ class TasksController extends BaseController {
         } else {
             $tasks = Tehtava::all();
         }
-
-        View::make('tehtava/listaus.html', array('tasks' => $tasks));
+        Kint::dump($tasks);
+  //      View::make('tehtava/listaus.html', array('tasks' => $tasks));
     }
 
     public static function show($id) {
