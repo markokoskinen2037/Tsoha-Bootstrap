@@ -35,6 +35,7 @@ class Tehtava extends BaseModel {
         $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE tekija = :id");
         $query->execute(array("id" => $tekija_id));
         $rows = $query->fetch();
+        $tehtavat = array();
 
         foreach ($rows as $row) {
             $tehtavat[] = new Tehtava(array(
