@@ -10,8 +10,8 @@
 </div>
 {% endif %}
 
-{% if 1==1 %}
-  <h1>Käyttäjän {{user_logged_in.kirjautumisnimi}} muistilista</h1>
+{% if user_logged_in %}
+  <h1>Käyttäjän {{user_logged_in}} muistilista</h1>
 {% endif %}
 
   <p>
