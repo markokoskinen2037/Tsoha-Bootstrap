@@ -21,8 +21,7 @@ $routes->get('/muokkaus', function() {
 });
 
 $routes->get('/tehtava', function() { //Listaa kaikki kirjautuneen käyttäjän tehtävät
-    Kint::dump(TasksController::index());
-    //TasksController::index();
+    TasksController::index();
 });
 
 $routes->get('/tehtava/uusi', function() {
