@@ -6,10 +6,10 @@ class TasksController extends BaseController {
 
         if (isset($_SESSION['user'])) {
             $tasks = Tehtava::findUsersTasks($_SESSION['user']);
+        } else {
+            $tasks = Tehtava::all();
         }
 
-
-        $tasks = Tehtava::all();
         View::make('tehtava/listaus.html', array('tasks' => $tasks));
     }
 
