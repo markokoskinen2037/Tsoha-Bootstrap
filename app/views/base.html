@@ -45,11 +45,13 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
+                        {% block content %}
                         {% if user_logged_in %}
                             <li><a href="https://markokos.users.cs.helsinki.fi/tsoha/kirjaudu_ulos">Kirjaudu ulos</a></li>
                         {% else %}
                             <li><a href="https://markokos.users.cs.helsinki.fi/tsoha/kirjautuminen">Kirjaudu sisään</a></li>
                         {% endif %}
+                        {% endblock %}
                         
                 </div>
             </div>
