@@ -14,7 +14,8 @@
 {% endif %}
 
 {% if user_logged_in %}
-<h1>Muokkaat tehtävää: {{attributes.tehtavanimi}}</h1>
+<h3>Muokkaat tehtävää: {{attributes.tehtavanimi}}</h3>
+<hr>
 
 <form method="post" action="{{base_path}}/tehtava/{{attributes.id}}/muokkaus">
     <div class="checkbox">
