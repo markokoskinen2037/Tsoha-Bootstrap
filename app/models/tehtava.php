@@ -48,9 +48,9 @@ class Tehtava extends BaseModel {
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
             ));
-            return $tehtavat;
+            
         }
-        return null;
+        return $tehtavat;
     }
 
     public static function find($id) {
