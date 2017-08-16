@@ -3,6 +3,12 @@
 class TasksController extends BaseController {
 
     public static function index() {
+
+        if (isset($_SESSION['user'])) {
+            $tasks = Tehtava::findUsersTasks($_SESSION['user']);
+        }
+
+
         $tasks = Tehtava::all();
         View::make('tehtava/listaus.html', array('tasks' => $tasks));
     }

@@ -16,15 +16,11 @@ $routes->get('/kirjautuminen', function() {
     HelloWorldController::kirjautuminen();
 });
 
-$routes->get('/listaus', function() {
-    HelloWorldController::listaus();
-});
-
 $routes->get('/muokkaus', function() {
     HelloWorldController::muokkaus();
 });
 
-$routes->get('/tehtava', function() {
+$routes->get('/tehtava', function() { //Listaa kaikki kirjautuneen käyttäjän tehtävät
     TasksController::index();
 });
 

@@ -31,6 +31,27 @@ class Tehtava extends BaseModel {
         return $tehtavat;
     }
 
+    public static function findUsersTasks($tekija_id) {
+        $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE tekija = :id LIMIT 1");
+        $query->execute(array("id" => $tekija_id));
+        $row = $query->fetch();
+
+        if ($row) {
+            $tehtava = new Tehtava(array(
+                "id" => $row["id"],
+                "tehtavanimi" => $row["tehtavanimi"],
+                "kuvaus" => $row["kuvaus"],
+                "tehty" => $row["tehty"],
+                "luomisaika" => $row["luomisaika"],
+                "luokkatunnus" => $row["luokkatunnus"],
+                "tarkeysaste" => $row["tarkeysaste"],
+                "tekija" => $row["tekija"]
+            ));
+            return $tehtava;
+        }
+        return null;
+    }
+
     public static function find($id) {
         $query = DB::connection()->prepare("SELECT * FROM Tehtava WHERE id = :id LIMIT 1");
         $query->execute(array("id" => $id));
@@ -78,10 +99,10 @@ class Tehtava extends BaseModel {
     }
 
     public function update($id) {
-        
-        
+
+
         $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus,'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
     }
 
     public function destroy() {
