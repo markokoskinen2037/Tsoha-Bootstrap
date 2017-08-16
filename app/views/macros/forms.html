@@ -17,3 +17,8 @@
 {% macro muokkaus_nappain_pieni(link, text) %}
 <a href="{{link}}" class="btn btn-default btn-sm">{{text|default('Muokkaa')}}</a>
 {% endmacro %}
+
+{% macro tama_toiminto_vaatii_kirjautumisen %}
+<p>Tämä toiminto vaatii kirjautumisen</p>
+<a href="http://markokos.users.cs.helsinki.fi/tsoha/kirjautuminen" class="btn btn-success">Kirjaudu sisään</a>
+{% endmacro %}
