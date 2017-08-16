@@ -8,6 +8,23 @@ class User extends BaseModel {
         parent::__construct($attributes);
     }
 
+    public static function find($id) {
+        $query = DB::connection()->prepare("SELECT * FROM Kayttaha WHERE id = :id LIMIT 1");
+        $query->execute(array("id" => $id));
+        $row = $query->fetch();
+
+        if ($row) {
+            $kayttaja = new Tehtava(array(
+                "id" => $row["id"],
+                "kirjautumisnimi" => $row["kirjautumisnimi"],
+                "salasana" => $row["salasana"],
+                "admin" => $row["admin"],
+            ));
+            return $kayttaja;
+        }
+        return null;
+    }
+
     public function save() {
         $query = DB::connection()->prepare('INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES (:kirjautumisnimi,:salasana) RETURNING id');
 

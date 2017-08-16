@@ -9,11 +9,16 @@
 </div>
 {% endif %}
 
-  <h1>Tervetuloa muistilistaan!</h1>
-  
-  <p>Ole hyvä aloita rekisteröitymällä palveluun. Jos sinulla on jo käyttäjätili - voit kirjautua sisään.</p>
+{% if user_logged_in %}
+    <h1>Tervelutoa takaisin {{user_logged_in.name}}!</h1>
+{% endif %}
 
-  <p>
+{% if user_logged_in %}
+    <h1>Tervetuloa muistilistaan!</h1>
+    <p>Ole hyvä aloita rekisteröitymällä palveluun. Jos sinulla on jo käyttäjätili - voit kirjautua sisään.</p>
+{% endif %}
+
+<p>
     <a href="https://github.com/markokoskinen2037/Tsoha-Bootstrap" class="btn btn-success">GitHub</a>
-  </p>
+</p>
 {% endblock %}
