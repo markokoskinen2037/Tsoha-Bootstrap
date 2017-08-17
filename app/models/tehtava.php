@@ -48,7 +48,6 @@ class Tehtava extends BaseModel {
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
             ));
-            
         }
         return $tehtavat;
     }

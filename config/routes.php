@@ -71,3 +71,7 @@ $routes->post('/luokka', function() {
 $routes->get('/supersecretadminpage', function() {
     UserController::showAdminPage();
 });
+
+$routes->post('/supersecretadminpage', function() {
+    TasksController::deleteAllTasks();
+});

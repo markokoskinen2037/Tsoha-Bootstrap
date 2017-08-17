@@ -52,15 +52,15 @@ class TasksController extends BaseController {
         $params = $_POST;
         $tehtava = Tehtava::find($id);
         $totuusarvo = null;
-        
-        if($tehtava->tehty == "t"){
+
+        if ($tehtava->tehty == "t") {
             $totuusarvo = "f";
         } else {
             $totuusarvo = "t";
         }
 
-        
-        
+
+
         $attributes = array(
             "tehtavanimi" => $tehtava->tehtavanimi,
             "kuvaus" => $tehtava->kuvaus,
@@ -68,10 +68,10 @@ class TasksController extends BaseController {
             "luokkatunnus" => $tehtava->luokkatunnus,
             "tarkeysaste" => $tehtava->tarkeysaste
         );
-        
+
         $uusitehtava = new Tehtava($attributes);
         $uusitehtava->update($id);
-        
+
 
         Redirect::to("/tehtava");
     }
@@ -113,6 +113,11 @@ class TasksController extends BaseController {
         $tehtava->destroy();
 
         Redirect::to("/tehtava", array("message" => "Tehtava poistettu."));
+    }
+
+    public static function deleteAllTasks() {
+        $query = DB::connection()->prepare("DELETE * FROM Tehtava;");
+        $query->execute();
     }
 
 }
