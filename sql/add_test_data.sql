@@ -2,7 +2,7 @@
 
 
 INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES ('TESTI','1234');
-INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES ('Pekka','salasana');
+INSERT INTO Kayttaja (kirjautumisnimi,salasana,adminrights) VALUES ('admin','admin','t');
 
 INSERT INTO Luokka (luokkanimi) VALUES ('Kotityöt');
 INSERT INTO Luokka (luokkanimi) VALUES ('Autoprojekti');

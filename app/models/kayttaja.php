@@ -2,7 +2,7 @@
 
 class User extends BaseModel {
 
-    public $id, $kirjautumisnimi, $salasana, $admin;
+    public $id, $kirjautumisnimi, $salasana, $adminrights;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -18,7 +18,7 @@ class User extends BaseModel {
                 "id" => $row["id"],
                 "kirjautumisnimi" => $row["kirjautumisnimi"],
                 "salasana" => $row["salasana"],
-                "admin" => $row["admin"],
+                "adminrights" => $row["adminrights"],
             ));
             return $kayttaja;
         }
@@ -38,7 +38,7 @@ class User extends BaseModel {
         $query->execute(array('kirjautumisnimi' => $kirjautumisnimi, 'salasana' => $salasana));
         $row = $query->fetch();
         if ($row) {
-            return new User(array("id" => $row["id"], "kirjautumisnimi" => $kirjautumisnimi, "salasana" => $salasana, "admin" => $row['admin']));
+            return new User(array("id" => $row["id"], "kirjautumisnimi" => $kirjautumisnimi, "salasana" => $salasana, "adminrights" => $row['adminrights']));
         } else {
             return null;
         }
