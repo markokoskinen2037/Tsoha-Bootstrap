@@ -14,7 +14,7 @@ class LuokkaController extends BaseController{
         );
         
         $luokka = new Luokka($attributes);
-        $luokka->save();
+        $luokka->save($params["luokkanimi"]);
     }
     
     
