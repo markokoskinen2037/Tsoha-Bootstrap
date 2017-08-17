@@ -1,5 +1,7 @@
 # Tietokantasovelluksen esittelysivu
 
+Vierailijatunnukset: ```TESTI:1234```
+
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://markokos.users.cs.helsinki.fi/tsoha/)
