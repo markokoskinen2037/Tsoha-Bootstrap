@@ -59,3 +59,11 @@ $routes->get('/login', function() {
 $routes->post('/login', function() {
     UserController::handle_login();
 });
+
+$routes->get('/luokka/uusi', function() {
+    LuokkaController::create();
+});
+
+$routes->post('/luokka/uusi', function() {
+    LuokkaController::store();
+});
