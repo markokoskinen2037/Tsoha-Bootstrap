@@ -6,7 +6,7 @@ class LuokkaController extends BaseController{
         View::make("luokka/uusi.html");
     }
     
-    public function store(){
+    public static function store(){
         $params = $_POST;
         
         $attributes = array(
