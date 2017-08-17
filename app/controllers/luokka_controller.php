@@ -18,10 +18,10 @@ class LuokkaController extends BaseController {
 
         if (count($errors) == 0) {
             $luokka->save($params["luokkanimi"]);
-            Redirect::to("/luokka/uusi.html", array('message' => "Luokka lisätty onnistuneesti!"));
+            Redirect::to("/luokka/uusi", array('message' => "Luokka lisätty onnistuneesti!"));
         } else {
             $luokka->save($params["luokkanimi"]);
-            Redirect::to("/luokka/uusi.html", array('errors' => "$errors", 'attributes' => $attributes));
+            Redirect::to("/luokka/uusi", array('errors' => "$errors", 'attributes' => $attributes));
         }
     }
 
