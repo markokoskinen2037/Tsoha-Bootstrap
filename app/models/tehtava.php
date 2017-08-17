@@ -92,7 +92,7 @@ class Tehtava extends BaseModel {
     }
 
     public function validate_luokkatunnus() {
-        return $this->validate_int_value($this->luokkatunnus, len(Tehtava::all())); //2 on vain placeholder arvo
+        return $this->validate_int_value($this->luokkatunnus, count(Tehtava::all())); //2 on vain placeholder arvo
     }
 
     public function validate_tarkeysaste() {
