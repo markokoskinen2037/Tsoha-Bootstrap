@@ -116,7 +116,7 @@ class TasksController extends BaseController {
     }
 
     public static function deleteAllTasks() {
-        $query = DB::connection()->prepare("DELETE * FROM Tehtava;");
+        $query = DB::connection()->prepare("DELETE FROM Tehtava;");
         $query->execute();
     }
 
