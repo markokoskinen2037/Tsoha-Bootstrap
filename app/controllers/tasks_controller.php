@@ -73,7 +73,7 @@ class TasksController extends BaseController {
         $uusitehtava->update($id);
         
 
-        Redirect::to("/tehtava", array("message" => "Tehtävä merkitty tehdyksi/tehtäväksi"));
+        Redirect::to("/tehtava");
     }
 
     public static function update($id) {
