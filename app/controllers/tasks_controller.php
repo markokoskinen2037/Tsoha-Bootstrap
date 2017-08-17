@@ -40,7 +40,7 @@ class TasksController extends BaseController {
     }
 
     public static function create() {
-        View::make('tehtava/uusi.html');
+        View::make('tehtava/uusi.html', array('luokat' => Luokka::all()));
     }
 
     public static function edit($id) {

@@ -30,8 +30,9 @@
             <div class="form-group">
                 <label>Luokkatunnus</label>
                 <select name="luokkatunnus" class="form-control">
-                    <option value="1">Kotityöt</option>
-                    <option value="2">Autoprojekti</option>
+                    {% for luokka in luokat %}
+                    <option value="{{luokka.id}}">{{luokka.luokkanimi}}</option>
+                    {% endfor %}
                 </select>
             </div>
 
