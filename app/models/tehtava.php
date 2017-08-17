@@ -75,8 +75,8 @@ class Tehtava extends BaseModel {
     }
 
     public function save() {
-        $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste) RETURNING id');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste));
+        $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste,tekija) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste, :tekija) RETURNING id');
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
     }
