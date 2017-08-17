@@ -64,6 +64,6 @@ $routes->get('/luokka/uusi', function() {
     LuokkaController::create();
 });
 
-$routes->post('/luokka/uusi', function() {
+$routes->post('/luokka', function() {
     LuokkaController::store();
 });

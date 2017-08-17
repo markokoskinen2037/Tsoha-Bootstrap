@@ -14,9 +14,9 @@
 {% endif %}
 
 {% if user_logged_in %}
-    <h3>Lisää Luokka</h3>
+    <h3>Lisää luokka</h3>
     <hr>
-        <form method="post" action="{{base_path}}/tehtava">
+        <form method="post" action="{{base_path}}/luokka">
             <div class="form-group">
                 <label>Nimi</label>
                 <input type="text" name="luokkanimi" class="form-control" value="{{attributes.luokkanimi}}">
