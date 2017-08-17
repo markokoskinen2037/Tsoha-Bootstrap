@@ -18,5 +18,9 @@ class UserController extends BaseController {
             Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $user->kirjautumisnimi . '!'));
         }
     }
+    
+    public static function showAdminPage(){
+        View::make('kayttaja/supersecretadminpage.html');
+    }
 
 }

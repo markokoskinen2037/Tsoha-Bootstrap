@@ -67,3 +67,7 @@ $routes->get('/luokka/uusi', function() {
 $routes->post('/luokka', function() {
     LuokkaController::store();
 });
+
+$routes->get('/supersecretadminpage', function() {
+    UserController::showAdminPage();
+});
