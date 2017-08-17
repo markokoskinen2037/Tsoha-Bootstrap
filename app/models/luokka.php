@@ -6,15 +6,16 @@ class Luokka extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
+        $this->validators = array("validate_luokkanimi");
     }
-    
-    public static function all(){
+
+    public static function all() {
         $query = DB::connection()->prepare("SELECT * FROM Luokka;");
         $query->execute();
         $rows = $query->fetchAll();
         $luokat = array();
-        
-        foreach ($rows as $row){
+
+        foreach ($rows as $row) {
             $luokat[] = new Luokka(array(
                 "id" => $row["id"],
                 "luokkanimi" => $row["luokkanimi"]
@@ -22,10 +23,14 @@ class Luokka extends BaseModel {
         }
         return $luokat;
     }
-    
-    public static function save($luokkanimi){
+
+    public static function save($luokkanimi) {
         $query = DB::connection()->prepare('INSERT INTO Luokka (luokkanimi) VALUES (:luokkanimi)');
         $query->execute(array("luokkanimi" => $luokkanimi));
+    }
+
+    public function validate_luokkanimi() {
+        return $this->validate_string_length($this->tehtavanimi, 100);
     }
 
 }

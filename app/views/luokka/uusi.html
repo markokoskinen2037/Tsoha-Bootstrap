@@ -13,6 +13,14 @@
 </div>
 {% endif %}
 
+{% if message%}
+<div class="alert alert-success">
+    <ul>
+        <li>{{message}}</li>
+    </ul>
+</div>
+{% endif %}
+
 {% if user_logged_in %}
     <h3>Lisää luokka</h3>
     <hr>
