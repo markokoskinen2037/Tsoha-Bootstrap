@@ -45,7 +45,7 @@ class TasksController extends BaseController {
 
     public static function edit($id) {
         $tehtava = Tehtava::find($id);
-        View::make("tehtava/muokkaus.html", array("attributes" => $tehtava));
+        View::make("tehtava/muokkaus.html", array("attributes" => $tehtava, "luokat" => Luokka::all()));
     }
 
     public static function markAsDone($id) {
