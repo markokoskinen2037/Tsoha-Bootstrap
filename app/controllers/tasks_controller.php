@@ -53,7 +53,7 @@ class TasksController extends BaseController {
         $tehtava = Tehtava::find($id);
         $totuusarvo = null;
         
-        if($tehtava['tehty'] == "t"){
+        if($tehtava->tehty == "t"){
             $totuusarvo = "f";
         } else {
             $totuusarvo = "t";
