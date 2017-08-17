@@ -43,6 +43,9 @@
                         <li><a href="{{base_path}}/tehtava/uusi">Lisää tehtävä</a></li>
                         <li><a href="{{base_path}}/luokka/uusi">Lisää luokka</a></li>
                         <li><a href="{{base_path}}/hiekkalaatikko">Hiekkalaatikko</a></li>
+                        {% if user_logged_in.admin%}
+                        <li><a href="{{base_path}}/supersecretadminpage">Supersecret adminpage</a></li>
+                        {% endif %}
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
