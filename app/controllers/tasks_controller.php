@@ -9,7 +9,7 @@ class TasksController extends BaseController {
         } else {
             $tasks = Tehtava::all();
         }
-         View::make('tehtava/listaus.html', array('tasks' => $tasks));
+        View::make('tehtava/listaus.html', array('tasks' => $tasks));
     }
 
     public static function show($id) {
@@ -48,12 +48,40 @@ class TasksController extends BaseController {
         View::make("tehtava/muokkaus.html", array("attributes" => $tehtava));
     }
 
+    public static function markAsDone($id) {
+        $params = $_POST;
+        $tehtava = Tehtava::find($id);
+        $totuusarvo = null;
+        
+        if($tehtava['tehty'] == "t"){
+            $totuusarvo = "f";
+        } else {
+            $totuusarvo = "t";
+        }
+
+        
+        
+        $attributes = array(
+            "tehtavanimi" => $tehtava["tehtavanimi"],
+            "kuvaus" => $tehtava["kuvaus"],
+            "tehty" => $totuusarvo,
+            "luokkatunnus" => $tehtava["luokkatunnus"],
+            "tarkeysaste" => $tehtava["tarkeysaste"]
+        );
+        
+        $uusitehtava = new Tehtava($attributes);
+        $uusitehtava->update($id);
+        
+
+        Redirect::to("/tehtava", array("message" => "Tehtävä merkitty tehdyksi/tehtäväksi"));
+    }
+
     public static function update($id) {
         $params = $_POST;
 
-        if(isset($params['laatikko'])){
+        if (isset($params['laatikko'])) {
             $tehty = "t";
-        }else{
+        } else {
             $tehty = "f";
         }
 

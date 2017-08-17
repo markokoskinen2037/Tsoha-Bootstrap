@@ -44,6 +44,10 @@ $routes->post('/tehtava/:id/poista', function($id) {
     TasksController::destroy($id);
 });
 
+$routes->post('/tehtava/:id/tehty', function($id) {
+    TasksController::markAsDone($id);
+});
+
 $routes->post('/tehtava', function() {
     TasksController::store();
 });
