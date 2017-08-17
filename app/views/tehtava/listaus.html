@@ -50,7 +50,11 @@
             <td>{{forms.poisto_nappain_pieni("#{base_path}/tehtava/#{task.id}/poista")}}</td>
             <td>
                 <form method="post" action="{{base_path}}/tehtava/{{task.id}}/tehty" style="display: inline-block;">
-                    <button type="submit" class="btn btn-danger btn-sm">Tehty</button>
+                    {% if task.tehty %}
+                        <button type="submit" class="btn btn-danger btn-sm">Merkitse tekemättömäksi</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-success btn-sm">Merkitse tehdyksi</button>
+                    {% endif %}
                 </form>
             </td>
           </tr>
