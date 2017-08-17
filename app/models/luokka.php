@@ -26,8 +26,6 @@ class Luokka extends BaseModel {
     public static function save(){
         $query = DB::connection()->prepare('INSERT INTO Luokka (luokkanimi) VALUES (:luokkanimi)');
         $query->execute(array("luokkanimi" => $this->luokkanimi));
-        $row = $query->fetch();
-        $this->id = $row['id'];
     }
 
 }
