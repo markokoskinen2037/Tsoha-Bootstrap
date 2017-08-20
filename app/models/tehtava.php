@@ -10,7 +10,7 @@ class Tehtava extends BaseModel {
     }
     
     public static function setClasses($luokka_array){
-        $this->$luokat = $luokka_array;
+        $luokat = $luokka_array;
     }
 
     public static function all() { //Huom. tärkeysasteen mukainen järjestys!
