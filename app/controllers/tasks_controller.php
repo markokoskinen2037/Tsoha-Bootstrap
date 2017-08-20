@@ -33,6 +33,7 @@ class TasksController extends BaseController {
         }
 
         $tehtava = new Tehtava($attributes);
+        $tehtava->setClasses($luokat);
         $errors = $tehtava->errors();
 
 
