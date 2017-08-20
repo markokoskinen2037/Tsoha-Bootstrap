@@ -2,15 +2,11 @@
 
 class Tehtava extends BaseModel {
 
-    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokat, $tarkeysaste, $tekija;
+    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $tarkeysaste, $tekija;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
         $this->validators = array("validate_tehtavanimi", "validate_kuvaus", "validate_tarkeysaste");
-    }
-    
-    public static function setClasses($luokka_array){
-        $luokat = $luokka_array;
     }
 
     public static function all() { //Huom. tärkeysasteen mukainen järjestys!
@@ -79,7 +75,7 @@ class Tehtava extends BaseModel {
 
     public function save() {
         $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste,tekija) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste, :tekija) RETURNING id');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokat[0], 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
     }
