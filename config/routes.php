@@ -75,3 +75,7 @@ $routes->get('/supersecretadminpage', function() {
 $routes->post('/supersecretadminpage', function() {
     TasksController::deleteAllTasks();
 });
+
+$routes->post('/logout', function(){
+  UserController::logout();
+});
