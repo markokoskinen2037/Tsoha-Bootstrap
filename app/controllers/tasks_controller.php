@@ -19,30 +19,31 @@ class TasksController extends BaseController {
 
     public static function store() {
         $params = $_POST;
-        $luokat = $params['luokkatunnukset'];
-        
-        $attributes = array(
-            "tehtavanimi" => $params["nimi"],
-            "kuvaus" => $params["kuvaus"],
-            "luokkatunnus" => array(),
-            "tarkeysaste" => $params["tarkeysaste"]
-        );
-
-        foreach ($luokat as $luokka) {
-            $attributes['luokkatunnukset'][] = $luokka;
-        }
-
-        $tehtava = new Tehtava($attributes);
-        $tehtava->setClasses($luokat);
-        $errors = $tehtava->errors();
-
-
-        if (count($errors) == 0) {
-            $tehtava->save();
-            Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
-        } else {
-            View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
-        }
+        Kint::dump($params);
+//        $luokat = $params['luokkatunnukset'];
+//        
+//        $attributes = array(
+//            "tehtavanimi" => $params["nimi"],
+//            "kuvaus" => $params["kuvaus"],
+//            "luokkatunnus" => array(),
+//            "tarkeysaste" => $params["tarkeysaste"]
+//        );
+//
+//        foreach ($luokat as $luokka) {
+//            $attributes['luokkatunnukset'][] = $luokka;
+//        }
+//
+//        $tehtava = new Tehtava($attributes);
+//        $tehtava->setClasses($luokat);
+//        $errors = $tehtava->errors();
+//
+//
+//        if (count($errors) == 0) {
+//            $tehtava->save();
+//            Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
+//        } else {
+//            View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
+//        }
     }
 
     public static function create() {
