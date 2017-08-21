@@ -34,12 +34,7 @@ class Luokka extends BaseModel {
     }
 
     public static function destroy($id) {
-
-        $query2 = DB::connection()->prepare('DELETE FROM Tehtava WHERE luokkatunnus=:id');
-        $query2->execute(array("id" => $id));
-
-
-        $query = DB::connection()->prepare('DELETE FROM Luokka WHERE id=:id');
+        $query = DB::connection()->prepare('DELETE FROM Luokka WHERE id=:id CASCADE');
         $query->execute(array("id" => $id));
     }
 
