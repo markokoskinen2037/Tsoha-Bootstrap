@@ -90,5 +90,4 @@ $routes->get('/register', function() {
 
 $routes->post('/register', function() {
     UserController::logout();
-    //git commit testi numero 2
 });
