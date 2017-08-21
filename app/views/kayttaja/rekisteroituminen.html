@@ -22,6 +22,9 @@
 </div>
 {% endif %}
 
+{% if user_logged_in %}
+<h3>Ole hyvä ja kirjaudu ulos luodaksesi tunnukset.</h3>
+{% else %}
 <h3>Rekisteröidy palveluun Muistilista</h3>
 <hr>
 <form method="post" action="{{base_path}}/register">
@@ -39,4 +42,5 @@
         <button type="submit" class="btn btn-primary">Lisää</button>
     </div>
 </form>
+{% endif %}
 {% endblock %}
