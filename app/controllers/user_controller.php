@@ -37,7 +37,7 @@ class UserController extends BaseController {
 
         $user = new User(array("kirjautumisnimi" => $params["kirjautumisnimi"], "salasana" => $params["salasana"]));
 
-        $user->save();
+        $user->save($params["kirjautumisnimi"],$params["salasana"]);
     }
 
 }

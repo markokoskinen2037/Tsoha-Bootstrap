@@ -25,10 +25,10 @@ class User extends BaseModel {
         return null;
     }
 
-    public static function save() {
+    public static function save($kirjautumisnimi,$salasana) {
         $query = DB::connection()->prepare('INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES (:kirjautumisnimi,:salasana) RETURNING id');
 
-        $query->execute(array('kirjautumisnimi' => $this->kirjautumisnimi, 'salasana' => $this->salasana));
+        $query->execute(array('kirjautumisnimi' => $kirjautumisnimi, 'salasana' => $salasana));
         $row = $query->fetch();
         $this->id = $row['id'];
     }
