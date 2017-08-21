@@ -42,7 +42,7 @@ class UserController extends BaseController {
         
         foreach ($users as $tarkasteltava) {
             if($user->kirjautumisnimi == $params["kirjautumisnimi"]){
-                View::make("kayttaja/rekisteroituminen", array("errors" => "Valitse toinen kirjautumisnimi!"));
+                View::make("kayttaja/rekisteroituminen.html", array("errors" => "Valitse toinen kirjautumisnimi!"));
             }
         }
         
@@ -50,7 +50,7 @@ class UserController extends BaseController {
 
         $user->save($params["kirjautumisnimi"],$params["salasana"]);
         
-        View::make("kayttaja/rekisteroituminen", array("message" => "Tunnus luotu onnistuneesti!"));
+        View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!"));
     }
 
 }
