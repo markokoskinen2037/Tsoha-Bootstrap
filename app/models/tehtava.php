@@ -6,7 +6,7 @@ class Tehtava extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
-        $this->validators = array("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
+        $this->validators = array("validate_tehtavanimi", "validate_kuvaus", "validate_tarkeysaste");
     }
 
     public static function all() { //Huom. tärkeysasteen mukainen järjestys!
@@ -91,7 +91,7 @@ class Tehtava extends BaseModel {
     }
 
     public function validate_luokkatunnus() {
-        return $this->validate_int_value($this->luokkatunnus, count(Tehtava::all())); //2 on vain placeholder arvo
+        return $this->validate_int_value($this->luokkatunnus, count(Luokka::all())); 
     }
 
     public function validate_tarkeysaste() {
