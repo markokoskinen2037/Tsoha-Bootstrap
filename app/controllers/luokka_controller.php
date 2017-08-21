@@ -3,7 +3,7 @@
 class LuokkaController extends BaseController {
 
     public static function create() {
-        View::make("luokka/uusi.html");
+        View::make("luokka/uusi.html", array("luokat" => Luokka::all()));
     }
 
     public static function store() {
