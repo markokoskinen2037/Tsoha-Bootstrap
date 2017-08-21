@@ -36,8 +36,21 @@ class UserController extends BaseController {
         $params = $_POST;
 
         $user = new User(array("kirjautumisnimi" => $params["kirjautumisnimi"], "salasana" => $params["salasana"]));
+        
+        $users = array();
+        $users = $user->all();
+        
+        foreach ($users as $tarkasteltava) {
+            if($user->kirjautumisnimi == $params["kirjatumisnimi"]){
+                View::make("kayttaja/rekisteroituminen", array("errors" => "Valitse toinen kirjautumisnimi!"));
+            }
+        }
+        
+        //Jos loopin aikana ei törmätä samaan tunnukseen, voidaan luoda uusi
 
         $user->save($params["kirjautumisnimi"],$params["salasana"]);
+        
+        View::make("kayttaja/rekisteroituminen", array("message" => "Tunnus luotu onnistuneesti!"));
     }
 
 }

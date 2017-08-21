@@ -8,6 +8,23 @@ class User extends BaseModel {
         parent::__construct($attributes);
     }
 
+    public static function all() { 
+        $query = DB::connection()->prepare("SELECT * FROM Kayttaja");
+        $query->execute();
+        $rows = $query->fetchAll();
+        $kayttajat = array();
+
+        foreach ($rows as $row) {
+            $kayttajat[] = new User(array(
+                "id" => $row["id"],
+                "kirjautumisnimi" => $row["kirjautumisnimi"],
+                "salasana" => $row["salasana"]
+            ));
+        }
+
+        return $kayttajat;
+    }
+
     public static function find($id) {
         $query = DB::connection()->prepare("SELECT * FROM Kayttaja WHERE id = :id LIMIT 1");
         $query->execute(array("id" => $id));
@@ -25,7 +42,7 @@ class User extends BaseModel {
         return null;
     }
 
-    public function save($kirjautumisnimi,$salasana) {
+    public function save($kirjautumisnimi, $salasana) {
         $query = DB::connection()->prepare('INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES (:kirjautumisnimi,:salasana) RETURNING id');
 
         $query->execute(array('kirjautumisnimi' => $kirjautumisnimi, 'salasana' => $salasana));
