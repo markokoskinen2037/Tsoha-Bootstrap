@@ -29,7 +29,7 @@ class LuokkaController extends BaseController {
         $luokka = new Luokka(array("id" => $params["luokkatunnus"]));
 
 
-        $luokka->destroy($_POST["luokkatunnus"]);
+        $luokka->destroy($params["luokkatunnus"]);
 
 
         Redirect::to("/luokka", array("message" => "Luokka poistettu."));

@@ -64,6 +64,10 @@ $routes->post('/luokka', function() {
     LuokkaController::store();
 });
 
+$routes->get('/luokka', function() {
+    LuokkaController::create();
+});
+
 $routes->post('/luokka/poista', function() {
     LuokkaController::destroy();
 });
