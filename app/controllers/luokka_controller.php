@@ -26,7 +26,7 @@ class LuokkaController extends BaseController {
 
     public static function destroy() {
         $params = $_POST;
-        $luokka = new Luokka(array("luokka.id" => $params["luokka.id"]));
+        $luokka = new Luokka(array("id" => $params["luokka.id"]));
 
 
         $luokka->destroy();
