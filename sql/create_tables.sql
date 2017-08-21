@@ -23,13 +23,13 @@ CREATE TABLE Tehtava(
   tehty boolean DEFAULT FALSE,
   luomisaika timestamp,
   luokkatunnus INTEGER REFERENCES Luokka(id) ON DELETE CASCADE,
-  tarkeysaste INTEGER REFERENCES Tarkeysaste(id),
-  tekija INTEGER REFERENCES Kayttaja(id)
+  tarkeysaste INTEGER REFERENCES Tarkeysaste(id) ON DELETE CASCADE,
+  tekija INTEGER REFERENCES Kayttaja(id) ON DELETE CASCADE
   );
 
 CREATE TABLE TehtavaLuokka(
   id SERIAL PRIMARY KEY,
-  tehtavaid INTEGER REFERENCES Tehtava(id),
-  luokkaid INTEGER REFERENCES Luokka(id)
+  tehtavaid INTEGER REFERENCES Tehtava(id) ON DELETE CASCADE,
+  luokkaid INTEGER REFERENCES Luokka(id) ON DELETE CASCADE
   );
   
