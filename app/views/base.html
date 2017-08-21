@@ -39,11 +39,15 @@
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="nav navbar-nav">
                         <!-- Navigaation linkit -->
+                        {% if user_logged_in %}
                         <li><a href="{{base_path}}/tehtava">Tehtävälistaus</a></li>
                         <li><a href="{{base_path}}/tehtava/uusi">Lisää tehtävä</a></li>
                         <li><a href="{{base_path}}/luokka/uusi">Lisää/poista luokka</a></li>
                         <li><a href="{{base_path}}/hiekkalaatikko">Hiekkalaatikko</a></li>
-                        {% if user_logged_in.adminrights%}
+                        {% else %}
+                        <li><a href="{{base_path}}/register">Rekisteröidy tästä</a></li>
+                        {% endif %}
+                        {% if user_logged_in.adminrights %}
                         <li><a href="{{base_path}}/supersecretadminpage">Supersecret adminpage</a></li>
                         {% endif %}
                     </ul>
