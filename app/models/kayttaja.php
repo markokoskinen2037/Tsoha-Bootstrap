@@ -25,7 +25,7 @@ class User extends BaseModel {
         return null;
     }
 
-    public function save() {
+    public static function save() {
         $query = DB::connection()->prepare('INSERT INTO Kayttaja (kirjautumisnimi,salasana) VALUES (:kirjautumisnimi,:salasana) RETURNING id');
 
         $query->execute(array('kirjautumisnimi' => $this->kirjautumisnimi, 'salasana' => $this->salasana));

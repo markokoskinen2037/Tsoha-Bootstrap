@@ -32,4 +32,12 @@ class UserController extends BaseController {
         View::make("kayttaja/rekisteroituminen.html");
     }
 
+    public static function create() {
+        $params = $_POST;
+
+        $user = new User(array("kirjautumisnimi" => $params["kirjautumisnimi"], "salasana" => $params["salasana"]));
+
+        $user->save();
+    }
+
 }
