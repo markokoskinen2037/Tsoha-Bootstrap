@@ -22,7 +22,7 @@ CREATE TABLE Tehtava(
   kuvaus varchar(500),
   tehty boolean DEFAULT FALSE,
   luomisaika timestamp,
-  luokkatunnus INTEGER REFERENCES Luokka(id),
+  luokkatunnus INTEGER REFERENCES Luokka(id) ON DELETE CASCADE,
   tarkeysaste INTEGER REFERENCES Tarkeysaste(id),
   tekija INTEGER REFERENCES Kayttaja(id)
   );
