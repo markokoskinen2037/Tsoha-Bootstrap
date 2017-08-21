@@ -68,6 +68,10 @@ $routes->post('/luokka', function() {
     LuokkaController::store();
 });
 
+$routes->post('/luokka/poista', function() {
+    LuokkaController::destroy();
+});
+
 $routes->get('/supersecretadminpage', function() {
     UserController::showAdminPage();
 });

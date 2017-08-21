@@ -33,4 +33,10 @@ class Luokka extends BaseModel {
         return $this->validate_string_length($this->luokkanimi, 100);
     }
 
+    public static function destroy() {
+        $query = DB::connection()->prepare('DELETE FROM Luokka WHER id=:id');
+        $query->execute(array("id" => $this->id));
+
+    }
+
 }
