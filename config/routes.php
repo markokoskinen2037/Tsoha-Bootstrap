@@ -85,9 +85,9 @@ $routes->post('/logout', function() {
 });
 
 $routes->get('/register', function() {
-    UserController::logout();
+    UserController::register();
 });
 
 $routes->post('/register', function() {
-    UserController::logout();
+    UserController::create();
 });
