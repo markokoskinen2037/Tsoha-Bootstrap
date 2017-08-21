@@ -52,12 +52,8 @@ $routes->post('/tehtava', function() {
     TasksController::store();
 });
 
-$routes->get('/login', function() {
-    UserController::login();
-});
-
-$routes->post('/login', function() {
-    UserController::handle_login();
+$routes->post('/supersecretadminpage', function() {
+    TasksController::deleteAllTasks();
 });
 
 $routes->get('/luokka/uusi', function() {
@@ -72,14 +68,26 @@ $routes->post('/luokka/poista', function() {
     LuokkaController::destroy();
 });
 
+$routes->get('/login', function() {
+    UserController::login();
+});
+
+$routes->post('/login', function() {
+    UserController::handle_login();
+});
+
 $routes->get('/supersecretadminpage', function() {
     UserController::showAdminPage();
 });
 
-$routes->post('/supersecretadminpage', function() {
-    TasksController::deleteAllTasks();
+$routes->post('/logout', function() {
+    UserController::logout();
 });
 
-$routes->post('/logout', function(){
-  UserController::logout();
+$routes->get('/register', function() {
+    UserController::logout();
+});
+
+$routes->post('/register', function() {
+    UserController::logout();
 });

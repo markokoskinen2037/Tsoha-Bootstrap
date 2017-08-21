@@ -28,4 +28,8 @@ class UserController extends BaseController {
         View::make('kayttaja/supersecretadminpage.html');
     }
 
+    public static function register() {
+        View::make("kayttaja/rekisteroituminen.html");
+    }
+
 }
