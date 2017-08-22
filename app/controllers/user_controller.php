@@ -51,7 +51,7 @@ class UserController extends BaseController {
 
         if (empty($validaatio_errorit)) { //Jos erroreita on nolla
             $user->save($params["kirjautumisnimi"], $params["salasana"]); //Tallennetaan uusi käyttäjä tietokantaan
-            View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!")); //Tehdään uusi näkymä ja kerrotaan onnistumisesta
+            View::make("kayttaja/kirjautuminen.html", array("message" => "Tunnus luotu onnistuneesti, ole hyvä ja kirjaudu sisään!", "kirjautumisnimi" => $params["kirjautumisnimi"])); //Tehdään uusi näkymä ja kerrotaan onnistumisesta
         } else { //virheitä oli ainakin 1
             View::make("kayttaja/rekisteroituminen.html", array('errors' => $validaatio_errorit, "nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
         }
