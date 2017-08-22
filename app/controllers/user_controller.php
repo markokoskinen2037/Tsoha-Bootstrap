@@ -44,7 +44,7 @@ class UserController extends BaseController {
         foreach ($users as $tarkasteltava) {
             if($user->kirjautumisnimi == $tarkasteltava->kirjautumisnimi){
                 $errors[] = "Valitse toinen kirjautumisnimi!";
-                View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors));
+                View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
             }
         }
         

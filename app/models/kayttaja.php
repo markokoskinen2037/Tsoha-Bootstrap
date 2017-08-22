@@ -6,6 +6,7 @@ class User extends BaseModel {
 
     public function __construct($attributes) {
         parent::__construct($attributes);
+        $this->validators = array("validate_nimi", "validate_salasana");
     }
 
     public static function all() { 
@@ -59,6 +60,14 @@ class User extends BaseModel {
         } else {
             return null;
         }
+    }
+    
+    public function validate_nimi(){
+        return $this->validate_string_length($this->kirjautumisnimi, 50);
+    }
+    
+    public function validate_salasana(){
+        return $this->validate_string_length($this->salasana, 50);
     }
 
 }
