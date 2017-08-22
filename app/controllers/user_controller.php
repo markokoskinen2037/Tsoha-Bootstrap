@@ -48,11 +48,11 @@ class UserController extends BaseController {
         }
 
         $errorit = $user->errors();
-        Kint::dump($errorit);
+        
 
         if ($errorit == 0) { //Jos erroreita on nolla
             $user->save($params["kirjautumisnimi"], $params["salasana"]); //Tallennetaan uusi käyttäjä tietokantaan
-
+            Kint::dump($user);
             View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!")); //Tehdään uusi näkymä ja kerrotaan onnistumisesta
         } else {
             View::make("kayttaja/rekisteroituminen.html", array('errors' => $errorit,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
