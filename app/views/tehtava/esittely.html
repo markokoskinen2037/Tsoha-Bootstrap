@@ -26,7 +26,11 @@
 <!-- Tiedot tulee listana tähän -->
 <ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
-    <li><strong>Luokkatunnus:</strong>{{taskdata.luokkatunnus}}</li>
+    <li><strong>Luokkatunnus:</strong>
+        {% for luokka in luokat %}
+        {{luokka.id}} . ","
+        {% endfor %}
+    </li>
     <li><strong>Status:</strong>
         {% if taskdata.tehty %}
         <label class="label label-success">tehty

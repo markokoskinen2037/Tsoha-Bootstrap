@@ -24,6 +24,21 @@ class Luokka extends BaseModel {
         return $luokat;
     }
 
+    public static function getTasksClasses($task_id) {
+        $query = DB::connection()->prepare("SELECT * FROM TehtavaLuokka INNER JOIN Luokka ON TehtavaLuokka.luokkaid = Luokka.id WHERE TehtavaLuokka.tehtavaid=:id;");
+        $query->execute(array("id" => $task_id));
+        $rows = $query->fetchAll();
+        $luokat = array();
+
+        foreach ($rows as $row) {
+            $luokat[] = new Luokka(array(
+                "id" => $row["id"],
+                "luokkanimi" => $row["luokkanimi"]
+            ));
+        }
+        return $luokat;
+    }
+
     public static function save($luokkanimi) {
         $query = DB::connection()->prepare('INSERT INTO Luokka (luokkanimi) VALUES (:luokkanimi)');
         $query->execute(array("luokkanimi" => $luokkanimi));
