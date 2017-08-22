@@ -36,30 +36,31 @@ class UserController extends BaseController {
         $params = $_POST;
 
         $user = new User(array("kirjautumisnimi" => $params["kirjautumisnimi"], "salasana" => $params["salasana"]));
-        
+
         $users = array();
         $users = $user->all();
         $errors = array();
-        
+
         foreach ($users as $tarkasteltava) { //Kirjautumisnimen tarkistus
-            if($user->kirjautumisnimi == $tarkasteltava->kirjautumisnimi){
+            if ($user->kirjautumisnimi == $tarkasteltava->kirjautumisnimi) {
                 $errors[] = "Valitse toinen kirjautumisnimi!";
-                View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
+                View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors, "nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
             }
         }
-        
+
         $errors = $user->errors();
-        
-        if(errors != 0){
+
+        if (errors == 0) {
+
+            $user->save($params["kirjautumisnimi"], $params["salasana"]);
+
+            View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!"));
+        } else {
             View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
         }
-        
-        
-        //Jos loopin aikana ei törmätä samaan tunnukseen, voidaan luoda uusi
 
-        $user->save($params["kirjautumisnimi"],$params["salasana"]);
-        
-        View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!"));
+
+        //Jos loopin aikana ei törmätä samaan tunnukseen, voidaan luoda uusi
     }
 
 }
