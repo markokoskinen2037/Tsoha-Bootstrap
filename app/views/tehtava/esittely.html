@@ -26,9 +26,9 @@
 <!-- Tiedot tulee listana tähän -->
 <ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
-    <li><strong>Luokkatunnus:</strong>
+    <li><strong>Luokkatunnukset:</strong>
         {% for luokka in luokat %}
-        {{luokka.id}} . ","
+        {{luokka.luokkanimi}} 
         {% endfor %}
     </li>
     <li><strong>Status:</strong>
