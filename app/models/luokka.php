@@ -45,7 +45,7 @@ class Luokka extends BaseModel {
     }
 
     public function validate_luokkanimi() {
-        return $this->validate_string_length($this->luokkanimi, 100);
+        return $this->validate_string_length($this->luokkanimi, 100, "luokkanimi");
     }
 
     public static function destroy($id) {

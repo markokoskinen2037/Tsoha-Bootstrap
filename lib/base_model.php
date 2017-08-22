@@ -35,11 +35,11 @@ class BaseModel {
         return $errors;
     }
 
-    public function validate_string_length($string, $length) {
+    public function validate_string_length($string, $length, $type) {
         $validation_errors = array();
 
         if (strlen($string) > $length) {
-            $validation_errors[] = "Liian pitkä merkkijono";
+            $validation_errors[] = "Liian pitkä " . $type;
         }
 
         if ($string == null) {

@@ -63,11 +63,11 @@ class User extends BaseModel {
     }
     
     public function validate_nimi(){
-        return $this->validate_string_length($this->kirjautumisnimi, 50);
+        return $this->validate_string_length($this->kirjautumisnimi, 50, "nimi");
     }
     
     public function validate_salasana(){
-        return $this->validate_string_length($this->salasana, 50);
+        return $this->validate_string_length($this->salasana, 50, "salasana");
     }
 
 }
