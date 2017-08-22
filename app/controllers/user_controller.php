@@ -41,12 +41,19 @@ class UserController extends BaseController {
         $users = $user->all();
         $errors = array();
         
-        foreach ($users as $tarkasteltava) {
+        foreach ($users as $tarkasteltava) { //Kirjautumisnimen tarkistus
             if($user->kirjautumisnimi == $tarkasteltava->kirjautumisnimi){
                 $errors[] = "Valitse toinen kirjautumisnimi!";
                 View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
             }
         }
+        
+        $errors = $user->errors();
+        
+        if(errors != 0){
+            View::make("kayttaja/rekisteroituminen.html", array('errors' => $errors,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
+        }
+        
         
         //Jos loopin aikana ei törmätä samaan tunnukseen, voidaan luoda uusi
 
