@@ -78,6 +78,9 @@ class Tehtava extends BaseModel {
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
+
+        $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
+        $query2->execute(array('tehtavaid' => $this->id, $this->luokkatunnus ));
     }
 
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
@@ -91,7 +94,7 @@ class Tehtava extends BaseModel {
     }
 
     public function validate_luokkatunnus() {
-        return $this->validate_int_value($this->luokkatunnus, count(Luokka::all())); 
+        return $this->validate_int_value($this->luokkatunnus, count(Luokka::all()));
     }
 
     public function validate_tarkeysaste() {
