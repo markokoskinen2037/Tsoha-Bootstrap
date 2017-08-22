@@ -16,7 +16,8 @@ class TasksController extends BaseController {
         $task = Tehtava::find($id);
         $luokat = array();
         $luokat = Luokka::getTasksClasses($task->id);
-        View::make('tehtava/esittely.html', array('taskdata' => $task, 'luokat' => $luokat));
+        Kint::dump($luokat);
+        //View::make('tehtava/esittely.html', array('taskdata' => $task, 'luokat' => $luokat));
     }
 
     public static function store() {
