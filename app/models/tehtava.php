@@ -80,7 +80,7 @@ class Tehtava extends BaseModel {
         $this->id = $row['id'];
 
         $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
-        $query2->execute(array('tehtavaid' => $this->id, $this->luokkatunnus ));
+        $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $this->luokkatunnus ));
     }
 
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
