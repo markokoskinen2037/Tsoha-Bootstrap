@@ -16,14 +16,6 @@
 
 
 
-<!-- Painikkeet tähän -->
-<p>
-    {{forms.poisto_nappain("#{base_path}/tehtava/#{taskdata.id}/poista")}}
-    {{forms.muokkaus_nappain("#{base_path}/tehtava/#{taskdata.id}/muokkaus")}}
-</p>
-
-
-<!-- Tiedot tulee listana tähän -->
 <ul>
     <li><strong>Kiireellisyys:</strong>{{taskdata.tarkeysaste}}</li>
     <li><strong>Luokkatunnukset:</strong>
@@ -34,15 +26,18 @@
     <li><strong>Status:</strong>
         {% if taskdata.tehty %}
         <label class="label label-success">tehty
-            {% else %}
-            <label class="label label-danger">kesken
-                {% endif %}
-
-                </li>
-                </ul>
-                <!-- Kuvaus tulee tähän -->
-                <p>{{taskdata.kuvaus}}</p>
+        {% else %}
+        <label class="label label-danger">kesken
+        {% endif %}
+        </li>
+</ul>
 
 
 
-                {% endblock %}
+    <p>{{taskdata.kuvaus}}</p>
+    <hr>
+    <p>
+        {{forms.poisto_nappain_pieni("#{base_path}/tehtava/#{taskdata.id}/poista")}}
+        {{forms.muokkaus_nappain_pieni("#{base_path}/tehtava/#{taskdata.id}/muokkaus")}}
+    </p>
+{% endblock %}
