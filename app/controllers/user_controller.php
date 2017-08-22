@@ -50,7 +50,7 @@ class UserController extends BaseController {
 
         $errors = $user->errors();
 
-        if (errors == 0) {
+        if ($errors == 0) {
 
             $user->save($params["kirjautumisnimi"], $params["salasana"]);
 
