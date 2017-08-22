@@ -55,7 +55,7 @@ class UserController extends BaseController {
 
             View::make("kayttaja/rekisteroituminen.html", array("message" => "Tunnus luotu onnistuneesti!")); //Tehdään uusi näkymä ja kerrotaan onnistumisesta
         } else {
-            View::make("kayttaja/rekisteroituminen.html", array('errorit' => $errorit,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
+            View::make("kayttaja/rekisteroituminen.html", array('errors' => $errorit,"nimi" => $user->kirjautumisnimi, "salasana" => $user->salasana));
         }
 
 
