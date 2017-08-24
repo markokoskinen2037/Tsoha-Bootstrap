@@ -40,7 +40,11 @@ class Tehtava extends BaseModel {
         foreach ($rows as $row) {
 
             $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
-            $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika)[0]; //// esim. 2017-08-22 16:02:44
+            $explodedLuomisaika = explode(".", $alkuperainenLuomisaika)[0]; //// esim. 2017-08-22 16:02:44
+            $muokattuLuomisaika = str_ireplace("-", ".",$explodedLuomisaika);
+                    
+                    
+                    //str_ireplace("WORLD","Peter","Hello world!");
 
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
