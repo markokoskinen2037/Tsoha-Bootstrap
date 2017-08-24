@@ -2,7 +2,7 @@
 
 class Tehtava extends BaseModel {
 
-    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $tarkeysaste, $tekija;
+    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $tarkeysaste, $tekija, $kirjallinenTarkeysaste;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -41,10 +41,26 @@ class Tehtava extends BaseModel {
 
             $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
             $explodedLuomisaika = explode(".", $alkuperainenLuomisaika)[0]; //// esim. 2017-08-22 16:02:44
-            $muokattuLuomisaika = str_ireplace("-", ".",$explodedLuomisaika);
-            
-            
-            
+            $muokattuLuomisaika = str_ireplace("-", ".", $explodedLuomisaika);
+
+            if ($row["tarkeysaste"] == 1) {
+                $kirjallinenTarkeysaste = "Kiireetön";
+            }
+            else if ($row["tarkeysaste"] == 2) {
+                $kirjallinenTarkeysaste = "Hieman kiireellinen";
+            }
+            else if ($row["tarkeysaste"] == 3) {
+                $kirjallinenTarkeysaste = "Aika kiireellinen";
+            }
+            else if ($row["tarkeysaste"] == 4) {
+                $kirjallinenTarkeysaste = "Hyvin kiireinen";
+            }
+            else if ($row["tarkeysaste"] == 5) {
+                $kirjallinenTarkeysaste = "Äärimmäisen kiireinen";
+            }
+
+
+
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
