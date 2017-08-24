@@ -69,6 +69,7 @@ class Tehtava extends BaseModel {
                 "luomisaika" => $muokattuLuomisaika,
                 "luokkatunnus" => $row["luokkatunnus"],
                 "tarkeysaste" => $row["tarkeysaste"],
+                "kirjallinenTarkeysaste" => $kirjallinenTarkeysaste,
                 "tekija" => $row["tekija"]
             ));
         }
