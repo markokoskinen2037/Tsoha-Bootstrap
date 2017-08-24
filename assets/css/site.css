@@ -1,3 +1,13 @@
+#main-container{
+  max-width: 1200px;
+  padding: 10px 25px;
+  margin: 0px auto;
+}
+
+.navbar .container-fluid{
+  max-width: 1200px;
+  margin: 0px auto;
+}
 /*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com
