@@ -26,11 +26,7 @@ h3 {
 .btn.btn-danger {
     width: 100%;
 }
-.btn-danger {
-    color: #ffffff;
-    background-color: #d33636;
-    border-color: #d23737;
-}
+
 
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
@@ -3388,12 +3384,12 @@ fieldset[disabled] .btn-warning.focus {
 .btn-danger:focus,
 .btn-danger.focus {
     color: #ffffff;
-    background-color: #b02669;
-    border-color: #711943;
+    background-color: #d33636;
+    border-color: #d23737;
 }
 .btn-danger:hover {
     color: #ffffff;
-    background-color: #b02669;
+    background-color: #cf3232;
     border-color: #a72564;
 }
 .btn-danger:active,
