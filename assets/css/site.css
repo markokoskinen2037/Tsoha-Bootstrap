@@ -23,6 +23,11 @@ h3 {
     width: 100%;
 }
 
+.btn.btn-primary:focus .btn-primary.focus {
+    color: #ffffff;
+    background-color: #1f7972;
+    border-color: #103c39;
+}
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 /*!
