@@ -16,20 +16,12 @@ class Tehtava extends BaseModel {
         $tehtavat = array();
 
         foreach ($rows as $row) {
-
-            $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
-            $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika[0]); //// esim. 2017-08-22 16:02:44
-
-
-
-
-
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
-                "luomisaika" => $muokattuLuomisaika,
+                "luomisaika" => $row["luomisaika"],
                 "luokkatunnus" => $row["luokkatunnus"],
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
@@ -48,7 +40,7 @@ class Tehtava extends BaseModel {
         foreach ($rows as $row) {
 
             $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
-            $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika[0]); //// esim. 2017-08-22 16:02:44
+            $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika)[0]; //// esim. 2017-08-22 16:02:44
 
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
