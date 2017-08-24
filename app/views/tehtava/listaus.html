@@ -37,7 +37,21 @@
           <tr>
             <td><a href="{{base_path}}/tehtava/{{task.id}}">{{task.tehtavanimi}}</td>
             <td>{{task.kuvaus}}</td>
-            <td>{{task.tarkeysaste}}</td>
+            
+            {{% if task.tarkeysaste == 1 %}}
+            <td>Kiireetön</td>
+            {{% else if task.tarkeysaste == 1 %}}
+            <td>Hieman kiireellinen</td>
+            {{% else if task.tarkeysaste == 1 %}}
+            <td>Aika kiireellinen</td>
+            {{% else if task.tarkeysaste == 1 %}}
+            <td>Hyvin kiireinen</td>
+            {{% else if task.tarkeysaste == 1 %}}
+            <td>Äärimmäisen kiireellinen</td>
+            {{% endif %}}
+            
+            
+            
             <td>
                 {% if task.tehty %}
                   <label class="label label-success">tehty
