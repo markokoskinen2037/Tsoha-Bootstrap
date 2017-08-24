@@ -16,26 +16,19 @@ class Tehtava extends BaseModel {
         $tehtavat = array();
 
         foreach ($rows as $row) {
-            
+
             $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
             $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika[0]); //// esim. 2017-08-22 16:02:44
-            
-            
-            
-            
-            
+
+
+
+
+
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
-                
-                
-                
-                
-                
-                
-                
                 "luomisaika" => $muokattuLuomisaika,
                 "luokkatunnus" => $row["luokkatunnus"],
                 "tarkeysaste" => $row["tarkeysaste"],
@@ -53,12 +46,16 @@ class Tehtava extends BaseModel {
         $tehtavat = array();
 
         foreach ($rows as $row) {
+
+            $alkuperainenLuomisaika = $row["luomisaika"]; // esim. 2017-08-22 16:02:44.343918
+            $muokattuLuomisaika = explode(".", $alkuperainenLuomisaika[0]); //// esim. 2017-08-22 16:02:44
+
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
                 "kuvaus" => $row["kuvaus"],
                 "tehty" => $row["tehty"],
-                "luomisaika" => $row["luomisaika"],
+                "luomisaika" => $muokattuLuomisaika,
                 "luokkatunnus" => $row["luokkatunnus"],
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
@@ -95,7 +92,7 @@ class Tehtava extends BaseModel {
         $this->id = $row['id'];
 
         $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
-        $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $this->luokkatunnus ));
+        $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $this->luokkatunnus));
     }
 
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
