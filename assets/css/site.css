@@ -26,6 +26,12 @@ h3 {
 .btn.btn-danger {
     width: 100%;
 }
+.btn-danger {
+    color: #ffffff;
+    background-color: #d33636;
+    border-color: #d23737;
+}
+
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 /*!
