@@ -12,6 +12,12 @@
 h3 {
     text-align: center;
 }
+
+.btn.btn-success {
+    width: 100%;
+}
+
+
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 /*!
  * bootswatch v3.3.7
