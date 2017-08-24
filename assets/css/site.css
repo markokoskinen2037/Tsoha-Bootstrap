@@ -23,10 +23,8 @@ h3 {
     width: 100%;
 }
 
-.btn.btn-primary:hover .btn-primary.hover {
-    color: #ffffff;
-    background-color: #1f7972;
-    border-color: #103c39;
+.btn.btn-danger {
+    width: 100%;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
