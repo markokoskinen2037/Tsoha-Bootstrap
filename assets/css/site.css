@@ -23,7 +23,7 @@ h3 {
     width: 100%;
 }
 
-.btn.btn-primary:focus .btn-primary.focus {
+.btn.btn-primary:hover .btn-primary.hover {
     color: #ffffff;
     background-color: #1f7972;
     border-color: #103c39;
