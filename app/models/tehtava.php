@@ -56,7 +56,7 @@ class Tehtava extends BaseModel {
                 $kirjallinenTarkeysaste = "Hyvin kiireinen";
             }
             else if ($row["tarkeysaste"] == 5) {
-                $kirjallinenTarkeysaste = "Äärimmäisen kiireinen";
+                $kirjallinenTarkeysaste = "Äärimmäisen kiireellinen";
             }
 
 
