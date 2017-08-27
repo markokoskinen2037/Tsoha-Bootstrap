@@ -37,7 +37,7 @@ class TasksController extends BaseController {
             $tehtava->save();
             Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
         } else {
-            View::make('tehtava/uusi.html', array('errors' => $errors, 'attributes' => $attributes));
+            Redirect::to('/tehtava/uusi',array('errors' => $errors, 'attributes' => $attributes));
         }
     }
 
