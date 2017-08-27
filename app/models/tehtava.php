@@ -45,17 +45,13 @@ class Tehtava extends BaseModel {
 
             if ($row["tarkeysaste"] == 1) {
                 $kirjallinenTarkeysaste = "Kiireetön";
-            }
-            else if ($row["tarkeysaste"] == 2) {
+            } else if ($row["tarkeysaste"] == 2) {
                 $kirjallinenTarkeysaste = "Hieman kiireellinen";
-            }
-            else if ($row["tarkeysaste"] == 3) {
+            } else if ($row["tarkeysaste"] == 3) {
                 $kirjallinenTarkeysaste = "Aika kiireellinen";
-            }
-            else if ($row["tarkeysaste"] == 4) {
+            } else if ($row["tarkeysaste"] == 4) {
                 $kirjallinenTarkeysaste = "Hyvin kiireinen";
-            }
-            else if ($row["tarkeysaste"] == 5) {
+            } else if ($row["tarkeysaste"] == 5) {
                 $kirjallinenTarkeysaste = "Äärimmäisen kiireellinen";
             }
 
@@ -127,9 +123,21 @@ class Tehtava extends BaseModel {
 
     public function update($id) {
 
+        $placeholderLuokka = new Luokka();
+        $luokat = $placeholderLuokka->getTasksClasses($id);
 
-        $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
+
+
+        if (in_array($this->luokkatunnus, $luokat)) { //Jos tehtävällä on jo lisättävä luokka, ei tehdä muutoksia luokkiin.
+            $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
+            $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
+        } else { //Täytyy lisäksi luoda uusi TehtavaLuokka merkintä
+            $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
+            $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
+            
+            $query2 = DB::connection()->prepare("INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid);");
+            $query2->execute(array("tehtavaid" => id, "luokkaid" => $this->luokkatunnus));
+        }
     }
 
     public function destroy() {
