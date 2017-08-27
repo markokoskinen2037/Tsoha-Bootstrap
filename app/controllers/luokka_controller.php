@@ -35,4 +35,23 @@ class LuokkaController extends BaseController {
         Redirect::to("/luokka", array("message" => "Luokka poistettu."));
     }
 
+    public static function store() {
+        $params = $_POST;
+        $luokka = new Luokka(array("id" => $params["luokkatunnus"], "luokkanimi" => $params["uusinimi"]));
+        
+        
+        $errors = $luokka->errors();
+        
+        if(count($errors) == 0){
+            $luokka->updateName($params["uusinimi"]);
+            Redirect::to("/luokka/uusi", array('message' => "Muokkaukset tallennettu."));
+        }
+        
+        
+        
+        
+        
+        
+    }
+
 }
