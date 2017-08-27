@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <label>Luokka</label>
-                <select name="luokkatunnus" class="form-control">
+                <select multiple name="luokkatunnus" class="form-control">
                     {% for luokka in luokat %}
                     <option value="{{luokka.id}}">{{luokka.luokkanimi}}</option>
                     {% endfor %}
