@@ -136,7 +136,7 @@ class Tehtava extends BaseModel {
             $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
             
             $query2 = DB::connection()->prepare("INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid);");
-            $query2->execute(array("tehtavaid" => id, "luokkaid" => $this->luokkatunnus));
+            $query2->execute(array("tehtavaid" => $id, "luokkaid" => $this->luokkatunnus));
         }
     }
 
