@@ -2,7 +2,7 @@
 
 class Tehtava extends BaseModel {
 
-    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $luokkatunnukset, $tarkeysaste, $tekija, $kirjallinenTarkeysaste;
+    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $tarkeysaste, $tekija, $kirjallinenTarkeysaste;
 
     public function __construct($attributes) {
         parent::__construct($attributes);

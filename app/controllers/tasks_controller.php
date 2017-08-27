@@ -22,21 +22,15 @@ class TasksController extends BaseController {
     public static function store() {
         $params = $_POST;
 
-        $luokkatunnukset = array();
-        
-        foreach ($params["luokkatunnus"] as $tunnus) {
-            $luokkatunnukset[] = $tunnus;
-        }
-        
-        
+
+
         $attributes = array(
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
-            "luokkatunnukset" => $luokkatunnukset,
             "tarkeysaste" => $params["tarkeysaste"]
         );
-        
+
         $tehtava = new Tehtava($attributes);
         $errors = $tehtava->errors();
 
@@ -45,7 +39,7 @@ class TasksController extends BaseController {
             $tehtava->save();
             Redirect::to('/tehtava/' . $tehtava->id, array('message' => 'Tehtävä lisätty!'));
         } else {
-            Redirect::to('/tehtava/uusi',array('errors' => $errors, 'attributes' => $attributes));
+            Redirect::to('/tehtava/uusi', array('errors' => $errors, 'attributes' => $attributes));
         }
     }
 
