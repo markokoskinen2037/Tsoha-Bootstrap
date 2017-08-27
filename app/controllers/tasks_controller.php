@@ -26,6 +26,7 @@ class TasksController extends BaseController {
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
+            "luokkatunnukset" => $params["luokkatunnus"],
             "tarkeysaste" => $params["tarkeysaste"]
         );
         

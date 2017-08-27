@@ -2,7 +2,7 @@
 
 class Tehtava extends BaseModel {
 
-    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $tarkeysaste, $tekija, $kirjallinenTarkeysaste;
+    public $id, $tehtavanimi, $kuvaus, $tehty, $luomisaika, $luokkatunnus, $luokkatunnukset, $tarkeysaste, $tekija, $kirjallinenTarkeysaste;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -99,8 +99,11 @@ class Tehtava extends BaseModel {
         $row = $query->fetch();
         $this->id = $row['id'];
 
-        $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
-        $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $this->luokkatunnus));
+
+        foreach ($this->luokkatunnukset as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
+            $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
+            $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $tunnus));
+        }
     }
 
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
@@ -134,7 +137,7 @@ class Tehtava extends BaseModel {
         } else { //Täytyy lisäksi luoda uusi TehtavaLuokka merkintä
             $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
             $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
-            
+
             $query2 = DB::connection()->prepare("INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid);");
             $query2->execute(array("tehtavaid" => $id, "luokkaid" => $this->luokkatunnus));
         }
