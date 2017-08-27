@@ -45,6 +45,8 @@ class LuokkaController extends BaseController {
         if(count($errors) == 0){
             $luokka->updateName($params["luokkatunnus"], $params["uusinimi"]);
             Redirect::to("/luokka/uusi", array('message' => "Muokkaukset tallennettu."));
+        } else {
+             Redirect::to("/luokka/uusi", array('errors' => $errors));
         }
         
         
