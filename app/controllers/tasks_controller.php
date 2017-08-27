@@ -22,11 +22,18 @@ class TasksController extends BaseController {
     public static function store() {
         $params = $_POST;
 
+        $luokkatunnukset = array();
+        
+        foreach ($params["luokkatunnus"] as $tunnus) {
+            $luokkatunnukset[] = $tunnus;
+        }
+        
+        
         $attributes = array(
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
             "luokkatunnus" => $params["luokkatunnus"],
-            "luokkatunnukset" => $params["luokkatunnus"],
+            "luokkatunnukset" => $luokkatunnukset,
             "tarkeysaste" => $params["tarkeysaste"]
         );
         
