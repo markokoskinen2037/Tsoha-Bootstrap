@@ -73,7 +73,7 @@ $routes->post('/luokka/poista', function() {
 });
 
 $routes->post('/luokka/muokkaa', function() {
-    LuokkaController::store();
+    LuokkaController::update();
 });
 
 $routes->get('/login', function() {
