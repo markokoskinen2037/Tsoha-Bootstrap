@@ -55,7 +55,7 @@ class Luokka extends BaseModel {
 
     public static function updateName($id,$uusinimi) {
         $query = DB::connection()->prepare("UPDATE Luokka SET luokkanimi=:luokkanimi WHERE id=:id;");
-        $query->execute(array("luokkanimi" => $uusinimi, "id" => $this->id));
+        $query->execute(array("luokkanimi" => $uusinimi, "id" => $id));
     }
 
 }
