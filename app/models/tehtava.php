@@ -95,12 +95,12 @@ class Tehtava extends BaseModel {
 
     public function save() {
         $query = DB::connection()->prepare('INSERT INTO Tehtava (tehtavanimi,kuvaus,luomisaika,luokkatunnus,tarkeysaste,tekija) VALUES (:tehtavanimi, :kuvaus, Now(), :luokkatunnus, :tarkeysaste, :tekija) RETURNING id');
-        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus[1], 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
 
 
-        foreach ($this->luokkatunnukset as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
+        foreach ($this->luokkatunnus as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
             $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
             $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $tunnus));
         }
