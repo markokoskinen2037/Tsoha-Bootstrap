@@ -123,7 +123,7 @@ class Tehtava extends BaseModel {
 
     public function update($id) {
 
-        $placeholderLuokka = new Luokka(123);
+        $placeholderLuokka = new Luokka(array());
         $luokat = $placeholderLuokka->getTasksClasses($id);
 
 
