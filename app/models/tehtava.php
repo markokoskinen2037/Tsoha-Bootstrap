@@ -77,6 +77,21 @@ class Tehtava extends BaseModel {
         $query->execute(array("id" => $id));
         $row = $query->fetch();
 
+        if ($row["tarkeysaste"] == 1) {
+            $kirjallinenTarkeysaste = "Kiireetön";
+        } else if ($row["tarkeysaste"] == 2) {
+            $kirjallinenTarkeysaste = "Hieman kiireellinen";
+        } else if ($row["tarkeysaste"] == 3) {
+            $kirjallinenTarkeysaste = "Aika kiireellinen";
+        } else if ($row["tarkeysaste"] == 4) {
+            $kirjallinenTarkeysaste = "Hyvin kiireinen";
+        } else if ($row["tarkeysaste"] == 5) {
+            $kirjallinenTarkeysaste = "Äärimmäisen kiireellinen";
+        }
+
+
+
+
         if ($row) {
             $tehtava = new Tehtava(array(
                 "id" => $row["id"],
@@ -85,6 +100,7 @@ class Tehtava extends BaseModel {
                 "tehty" => $row["tehty"],
                 "luomisaika" => $row["luomisaika"],
                 "luokkatunnus" => $row["luokkatunnus"],
+                "kirjallinenTarkeysaste" => $kirjallinenTarkeysaste,
                 "tarkeysaste" => $row["tarkeysaste"],
                 "tekija" => $row["tekija"]
             ));
