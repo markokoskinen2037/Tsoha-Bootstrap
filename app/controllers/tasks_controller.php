@@ -74,7 +74,7 @@ class TasksController extends BaseController {
         );
 
         $uusitehtava = new Tehtava($attributes);
-        $uusitehtava->update($id);
+        $uusitehtava->merkitsetehdyksi($id);
 
 
         Redirect::to("/tehtava");

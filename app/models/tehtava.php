@@ -158,6 +158,11 @@ class Tehtava extends BaseModel {
             $query2->execute(array("tehtavaid" => $id, "luokkaid" => $this->luokkatunnus));
         }
     }
+    
+    public function merkitsetehdyksi($id){
+        $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
+        $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
+    }
 
     public function destroy() {
 
