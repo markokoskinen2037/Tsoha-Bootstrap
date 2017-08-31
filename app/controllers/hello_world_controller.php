@@ -3,22 +3,12 @@
 class HelloWorldController extends BaseController {
 
     public static function index() {
-        // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
         View::make('suunnitelmat/etusivu.html');
     }
 
     public static function sandbox() {
 
         Kint::dump($_SESSION['user']);
-
-
-        // Testaa koodiasi täällä
-//        $tehtava = Tehtava::find(1);
-//        $tehtavat = Tehtava::all();
-//        
-//        Kint::dump($tehtavat);
-//        Kint::dump($tehtava);
-//        View::make('helloworld.html');
     }
 
     public static function esittely() {

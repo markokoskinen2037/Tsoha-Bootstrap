@@ -22,8 +22,6 @@ class TasksController extends BaseController {
     public static function store() {
         $params = $_POST;
 
-
-
         $attributes = array(
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
@@ -63,8 +61,6 @@ class TasksController extends BaseController {
             $totuusarvo = "t";
         }
 
-
-
         $attributes = array(
             "tehtavanimi" => $tehtava->tehtavanimi,
             "kuvaus" => $tehtava->kuvaus,
@@ -74,8 +70,7 @@ class TasksController extends BaseController {
         );
 
         $uusitehtava = new Tehtava($attributes);
-        $uusitehtava->merkitsetehdyksi($id);
-
+        $uusitehtava->toggleDone($id);
 
         Redirect::to("/tehtava");
     }
@@ -88,9 +83,6 @@ class TasksController extends BaseController {
         } else {
             $tehty = "f";
         }
-
-
-
 
         $attributes = array(
             "tehtavanimi" => $params["tehtavanimi"],

@@ -27,8 +27,6 @@ class LuokkaController extends BaseController {
     public static function destroy() {
         $params = $_POST;
         $luokka = new Luokka(array("id" => $params["luokkatunnus"]));
-
-
         $luokka->destroy($params["luokkatunnus"]);
 
 
@@ -38,22 +36,15 @@ class LuokkaController extends BaseController {
     public static function update() {
         $params = $_POST;
         $luokka = new Luokka(array("id" => $params["luokkatunnus"], "luokkanimi" => $params["uusinimi"]));
-        
-        
+
         $errors = $luokka->errors();
-        
-        if(count($errors) == 0){
+
+        if (count($errors) == 0) {
             $luokka->updateName($params["luokkatunnus"], $params["uusinimi"]);
             Redirect::to("/luokka/uusi", array('message' => "Muokkaukset tallennettu."));
         } else {
-             Redirect::to("/luokka/uusi", array('errors' => $errors));
+            Redirect::to("/luokka/uusi", array('errors' => $errors));
         }
-        
-        
-        
-        
-        
-        
     }
 
 }

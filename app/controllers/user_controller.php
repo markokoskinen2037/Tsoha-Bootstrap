@@ -34,7 +34,6 @@ class UserController extends BaseController {
 
     public static function create() {
         $params = $_POST;
-
         $user = new User(array("kirjautumisnimi" => $params["kirjautumisnimi"], "salasana" => $params["salasana"]));
 
         $users = $user->all();

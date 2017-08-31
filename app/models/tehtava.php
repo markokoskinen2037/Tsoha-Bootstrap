@@ -55,8 +55,6 @@ class Tehtava extends BaseModel {
                 $kirjallinenTarkeysaste = "Äärimmäisen kiireellinen";
             }
 
-
-
             $tehtavat[] = new Tehtava(array(
                 "id" => $row["id"],
                 "tehtavanimi" => $row["tehtavanimi"],
@@ -89,9 +87,6 @@ class Tehtava extends BaseModel {
             $kirjallinenTarkeysaste = "Äärimmäisen kiireellinen";
         }
 
-
-
-
         if ($row) {
             $tehtava = new Tehtava(array(
                 "id" => $row["id"],
@@ -114,7 +109,6 @@ class Tehtava extends BaseModel {
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus[0], 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
-
 
         foreach ($this->luokkatunnus as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
             $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
@@ -145,8 +139,6 @@ class Tehtava extends BaseModel {
         $placeholderLuokka = new Luokka(array());
         $luokat = $placeholderLuokka->getTasksClasses($id);
 
-
-
         if (in_array($this->luokkatunnus, $luokat)) { //Jos tehtävällä on jo lisättävä luokka, ei tehdä muutoksia luokkiin.
             $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
             $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
@@ -158,8 +150,8 @@ class Tehtava extends BaseModel {
             $query2->execute(array("tehtavaid" => $id, "luokkaid" => $this->luokkatunnus));
         }
     }
-    
-    public function merkitsetehdyksi($id){
+
+    public function toggleDone($id) {
         $query = DB::connection()->prepare('UPDATE Tehtava SET tehtavanimi=:tehtavanimi,kuvaus=:kuvaus,tehty=:tehty,luokkatunnus=:luokkatunnus,tarkeysaste=:tarkeysaste WHERE id=:id;');
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'tehty' => $this->tehty, 'luokkatunnus' => $this->luokkatunnus, 'tarkeysaste' => $this->tarkeysaste, 'id' => $id));
     }
@@ -168,7 +160,6 @@ class Tehtava extends BaseModel {
 
         $query1 = DB::connection()->prepare('DELETE FROM Tehtavaluokka WHERE tehtavaid=:id;');
         $query1->execute(array("id" => $this->id));
-
 
         $query2 = DB::connection()->prepare('DELETE FROM Tehtava WHERE Tehtava.id=:id;');
         $query2->execute(array("id" => $this->id));
