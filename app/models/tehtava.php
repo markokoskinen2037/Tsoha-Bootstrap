@@ -118,8 +118,6 @@ class Tehtava extends BaseModel {
         }
     }
 
-    //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
-
     public function validate_tehtavanimi() {
         return $this->validate_string_length($this->tehtavanimi, 100, "tehtavanimi");
     }
