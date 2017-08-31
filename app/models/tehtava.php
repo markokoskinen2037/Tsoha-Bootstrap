@@ -109,13 +109,13 @@ class Tehtava extends BaseModel {
         $query->execute(array('tehtavanimi' => $this->tehtavanimi, 'kuvaus' => $this->kuvaus, 'luokkatunnus' => $this->luokkatunnus[0], 'tarkeysaste' => $this->tarkeysaste, 'tekija' => $_SESSION['user']));
         $row = $query->fetch();
         $this->id = $row['id'];
-        
-        Kint::dump($luokkatunnus);
-//
-//        foreach ($this->luokkatunnus as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
-//            $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
-//            $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $tunnus));
-//        }
+
+        if (isset($this->luokkatunnus)) {
+            foreach ($this->luokkatunnus as $tunnus) { //Lisää tietokantaan tehtävä-luokka parit
+                $query2 = DB::connection()->prepare('INSERT INTO TehtavaLuokka (tehtavaid,luokkaid) VALUES (:tehtavaid,:luokkaid)');
+                $query2->execute(array('tehtavaid' => $this->id, "luokkaid" => $tunnus));
+            }
+        }
     }
 
     //("validate_tehtavanimi", "validate_kuvaus", "validate_luokkatunnus", "validate_tarkeysaste");
