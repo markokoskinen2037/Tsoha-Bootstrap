@@ -21,11 +21,17 @@ class TasksController extends BaseController {
 
     public static function store() {
         $params = $_POST;
+        
+        if(isset($params["luokkatunnus"])){
+            $luokkatunnus = $params["luokkatunnus"];
+        } else {
+            $luokkatunnus = null;
+        }
 
         $attributes = array(
             "tehtavanimi" => $params["nimi"],
             "kuvaus" => $params["kuvaus"],
-            "luokkatunnus" => $params["luokkatunnus"],
+            "luokkatunnus" => $luokkatunnus,
             "tarkeysaste" => $params["tarkeysaste"]
         );
 
